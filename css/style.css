@@ -54,8 +54,8 @@ textarea {
 
 .hero {
   position: relative;
-  min-height: 1080px;
-  overflow: hidden;
+  min-height: 1166px;
+  overflow: visible;
   background: var(--paper);
 }
 
@@ -71,6 +71,7 @@ textarea {
   clip-path: path("M0 130C151 127 273 100 437 96C574 92 648 126 759 111C892 93 896 13 1037 4C1181 -5 1310 42 1464 47C1658 53 1810 41 1920 20V156H0Z");
   filter: drop-shadow(0 -28px 22px rgba(0, 0, 0, 0.22));
   pointer-events: none;
+  display: none;
 }
 
 .nav {
@@ -91,6 +92,8 @@ textarea {
 
 .nav__brand {
   color: var(--green);
+  font-size: 27px;
+  line-height: 43.875px;
 }
 
 .nav__links {
@@ -111,7 +114,7 @@ textarea {
   min-height: 54px;
   margin-left: 72px;
   padding: 0 40px;
-  border-radius: 8px;
+  border-radius: 18px;
   background: var(--green);
   color: #edfded;
   font-weight: 500;
@@ -119,30 +122,32 @@ textarea {
 
 .hero__photo {
   position: absolute;
-  top: 0;
-  left: 971px;
+  top: 126.5px;
+  left: 779.946px;
   z-index: 1;
-  width: 1090px;
-  height: 1080px;
+  width: 1295.309px;
+  height: 1037.36px;
   overflow: hidden;
-  clip-path: path("M118 0H1090V1000C956 1019 812 1017 646 1000C474 982 350 925 222 842C101 764 32 623 47 462C61 311 127 221 231 135C285 90 324 46 344 0Z");
+  clip-path: path("M 91.05390167236328 954 C 104.83141136169434 962.8007192611694 113.01086044311523 967.0319085121155 127.55390167236328 974.5 C 167.8100128173828 995.1721782684326 192.04244995117188 1004.0642490386963 235.55389404296875 1016.5 C 337.12520599365234 1045.5295028686523 399.9944534301758 1037.0801553726196 505.55389404296875 1033 C 570.2634582519531 1030.49880194664 605.9396209716797 1020.8103985786438 670.5538940429688 1016.5 C 764.0883026123047 1010.2603483200073 817.3469085693359 1022.0038347244263 910.5538940429688 1012 C 949.7893867492676 1007.7888841629028 971.1573753356934 999.752090215683 1010.5538940429688 997.5 C 1048.1907119750977 995.3485023975372 1070.89506149292 1010.6627006530762 1107.053955078125 1000 C 1120.4814023971558 996.0404527187347 1127.353988647461 991.8894152641296 1140.053955078125 986 C 1489.3775329589844 824.0065307617188 1140.053955078125 0 1140.053955078125 0 L 391.05389404296875 0 L 91.05390167236328 331.5 C 91.05390167236328 331.5 -113.81737518310547 823.1334991455078 91.05390167236328 954 Z");
   pointer-events: none;
 }
 
 .hero__photo img {
   display: block;
-  width: 1090px;
-  height: 1080px;
+  width: 100%;
+  height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: left top;
+  object-position: center;
 }
 
 .hero__content {
-  position: relative;
+  position: absolute;
+  inset: 0 auto auto 0;
   z-index: 7;
-  width: 772px;
-  padding: 198px 0 0 100px;
+  width: 900px;
+  height: 1040px;
+  padding: 0;
   pointer-events: auto;
 }
 
@@ -153,8 +158,10 @@ textarea {
 }
 
 .hero h1 {
+  position: absolute;
+  left: 186px;
+  top: 310px;
   margin: 0;
-  margin-left: 86px;
   font-family: Inter, system-ui, sans-serif;
   font-size: 134px;
   line-height: 1.1;
@@ -171,7 +178,10 @@ textarea {
   display: block;
   width: 529px;
   height: 72px;
-  margin: 48px 0 0 86px;
+  position: absolute;
+  left: 186px;
+  top: 660px;
+  margin: 0;
 }
 
 .hero__date span {
@@ -208,8 +218,11 @@ textarea {
 }
 
 .hero__content p {
-  width: 529px;
-  margin: 7px 0 104px 86px;
+  position: absolute;
+  left: 230px;
+  top: 731px;
+  width: 447px;
+  margin: 0;
   color: #b4b4b4;
   font-family: "Space Grotesk", sans-serif;
   font-size: 18px;
@@ -218,10 +231,22 @@ textarea {
   text-transform: uppercase;
 }
 
+.hero__content p::after {
+  content: "";
+  position: absolute;
+  left: 203.5px;
+  top: 74px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 30px 0 0 #b4b4b4;
+}
+
 .hero__actions {
-  position: relative;
-  left: auto;
-  top: auto;
+  position: absolute;
+  left: 100px;
+  top: 872px;
   display: flex;
   gap: 24px;
   align-items: center;
@@ -242,19 +267,22 @@ textarea {
   font-size: 24px;
   font-weight: 700;
   line-height: 1.1;
+  letter-spacing: -0.6px;
   text-align: center;
   cursor: pointer;
 }
 
 .button--primary {
+  width: 344px;
   border-color: var(--green);
   background: var(--green);
   color: #fff;
 }
 
 .button--ghost {
+  width: 404px;
   min-width: 404px;
-  border-color: var(--line);
+  border-color: #3f3f46;
   background: #fff;
   color: #585858;
 }
@@ -265,11 +293,25 @@ textarea {
   user-select: none;
 }
 
+.hero__bg-left {
+  position: absolute;
+  left: -59.968px;
+  top: 14.83px;
+  z-index: 4;
+  width: 1629.968px;
+  height: 1446.17px;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
 .hero__decor--side {
   left: -43px;
   top: 300px;
   width: 140px;
   z-index: 0;
+  display: none;
 }
 
 .hero__decor--leaves-a {
@@ -278,6 +320,7 @@ textarea {
   width: 237px;
   opacity: 0.22;
   filter: blur(2px);
+  display: none;
 }
 
 .hero__decor--leaves-b {
@@ -286,35 +329,40 @@ textarea {
   width: 179px;
   opacity: 0.22;
   filter: blur(2px);
+  display: none;
 }
 
 .hero__paper {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 126px;
   z-index: 3;
-  width: 1216px;
-  height: 1080px;
-  background: var(--paper);
-  clip-path: path("M0 0H1320C1291 66 1215 88 1118 172C1009 265 957 356 1008 510C1048 634 1061 792 942 897C846 982 716 985 642 1016C551 1055 468 1082 0 1080Z");
-  filter: drop-shadow(24px 28px 24px rgba(0, 0, 0, 0.22));
+  width: 1318.5px;
+  height: 1128.476px;
+  background: #f7f2eb;
+  clip-path: path("M 1318.5001220703125 0 C 1318.5001220703125 0 1308.000244140625 40 1232.5 79.5 C 1156.999755859375 119 1119.00048828125 143 1086.500244140625 167 C 1054 191 1054.5 191 1021.5001220703125 236.5 C 979.5497589111328 294.3408660888672 966.0001220703125 350 971.5001220703125 412.5 C 977.0001220703125 475 1002.0001220703125 560 1032.0001220703125 636 C 1046.2777862548828 697.8966178894043 1048.0001220703125 720 1040.0001220703125 780 C 1036.5318486690521 806.0120506286621 1020.819299697876 842.2072334289551 1001.5003051757812 876 C 976.2576580047607 920.1544151306152 964 927.5 922.5003051757812 945.5 C 881.0006103515625 963.5 845.5 943 791.5003051757812 963 C 737.5006103515625 983 724.5 1029 656.5003051757812 1051.5 C 588.5006103515625 1074 591.5 1051.5 477.5002746582031 1066 C 363.50054931640625 1080.5 397.5 1048 262.5002746582031 1077.5 C 127.50054931640625 1107 99.00031280517578 1115 99.00031280517578 1115 C 99.00031280517578 1115 64.36924934387207 1122.9783020019531 25.500307083129883 1127.5 C 6.629852294921875 1129.6952357292175 8.5 1127.5 0 1127.5 C 0 1127.5 1.6097813546657562 928.8587341308594 2.000305652618408 684 C 2.000305652618408 537.7486572265625 2.000305652618408 455.7513427734375 2.000305652618408 309.5 C 2.000305652618408 188.63272857666016 2.000305652618408 0 2.000305652618408 0 L 1308.000244140625 0 L 1318.5001220703125 0 Z");
+  filter: drop-shadow(4px 4px 35px rgba(0, 0, 0, 0.25));
   pointer-events: none;
+  display: none;
 }
 
 .hero__lemons {
   position: absolute;
   left: -39px;
-  top: 569px;
+  top: 683px;
   z-index: 4;
   width: 950px;
+  height: 578px;
   max-width: none;
+  object-fit: contain;
   pointer-events: none;
   user-select: none;
+  display: none;
 }
 
 @media (min-width: 1181px) {
   .hero {
-    min-height: 1080px;
+    min-height: 1166px;
   }
 }
 
@@ -970,42 +1018,49 @@ h3 {
 
   .hero__photo {
     display: block;
-    left: 500px;
+    left: 535px;
     top: 0;
-    width: 765px;
+    width: 735px;
     height: 625px;
-    clip-path: path("M118 0H765V585C674 596 574 595 462 586C338 575 244 539 157 488C68 435 22 350 38 258C50 178 95 126 166 76C205 49 236 24 252 0Z");
+    transform: none;
+    clip-path: path("M80 0H735V585C645 596 547 595 436 586C321 575 235 538 151 488C68 438 22 360 32 267C41 180 86 128 157 78C193 52 219 27 232 0Z");
   }
 
   .hero__photo img {
-    width: 765px;
-    height: 625px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: 45% top;
+    object-position: center;
   }
 
   .hero__content {
-    position: relative;
+    position: absolute;
+    inset: 0 auto auto 0;
     width: 500px;
-    padding: 108px 0 0 70px;
+    height: 625px;
+    padding: 0;
+    transform: none;
   }
 
   .hero h1 {
+    left: 108px;
+    top: 108px;
     font-size: 72px;
-    margin-left: 36px;
+    margin-left: 0;
   }
 
   .hero__date,
   .hero__content p {
     display: block;
-    width: 288px;
-    margin-left: 36px;
+    margin-left: 0;
   }
 
   .hero__date {
+    left: 106px;
+    top: 302px;
     width: 288px;
     height: 32px;
-    margin-top: 36px;
+    margin-top: 0;
   }
 
   .hero__date img {
@@ -1031,23 +1086,21 @@ h3 {
   }
 
   .hero__content p {
-    position: relative;
-    margin-top: 2px;
-    margin-bottom: 65px;
+    left: 181px;
+    top: 336px;
+    width: 140px;
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 11px;
     letter-spacing: 1.15px;
   }
 
   .hero__content p::after {
-    content: "";
-    position: absolute;
-    left: 50%;
+    left: 68px;
     top: 34px;
     width: 5px;
     height: 5px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 16px 0 0 #b9bab5;
+    box-shadow: 16px 0 0 #b4b4b4;
   }
 
   .button {
@@ -1058,31 +1111,46 @@ h3 {
   }
 
   .hero__actions {
+    left: 58px;
+    top: 414px;
     gap: 14px;
-    margin-left: -12px;
+    margin-left: 0;
   }
 
   .button--primary {
     flex: 0 0 188px;
+    width: 188px;
   }
 
   .button--ghost {
     flex: 0 0 223px;
+    width: 223px;
     min-width: 0;
   }
 
   .hero__paper {
-    display: block;
+    display: none;
+    top: 0;
     width: 735px;
     height: 625px;
-    clip-path: path("M0 0H735C705 38 642 62 590 118C538 174 521 247 555 320C589 396 579 486 510 525C455 556 421 576 361 586C228 608 108 594 0 611Z");
+    transform: none;
+    clip-path: path("M0 0H735C713 46 654 60 598 113C540 177 519 246 558 322C590 386 580 466 507 504C450 534 413 569 354 576C225 590 108 579 0 611Z");
   }
 
   .hero__lemons {
-    display: block;
+    display: none;
     left: 0;
     top: 313px;
     width: 310px;
+    height: auto;
+    transform: none;
+  }
+
+  .hero__bg-left {
+    left: -34px;
+    top: 8px;
+    width: 925px;
+    height: auto;
   }
 
   h2 {
@@ -1180,7 +1248,7 @@ h3 {
   }
 
   .hero {
-    min-height: 704px;
+    min-height: 1040px;
   }
 
   .hero::after {
@@ -1190,32 +1258,40 @@ h3 {
 
   .hero__photo {
     display: block;
-    left: 320px;
-    width: 650px;
-    height: 704px;
+    top: 640px;
+    left: 0;
+    width: 390px;
+    height: 312px;
+    clip-path: path("M27 286C31 290 33 291 38 293C50 299 58 302 71 306C101 314 120 312 152 310C171 309 182 306 201 305C230 303 245 307 273 304C285 302 291 300 303 299C314 298 321 303 332 300C336 299 339 298 342 296C447 247 342 0 342 0H117L27 100C27 100 -35 247 27 286Z");
   }
 
   .hero__content {
     width: 100%;
-    padding: 135px 18px 0;
+    height: 620px;
+    padding: 0;
   }
 
   .hero h1 {
-    font-size: clamp(56px, 18vw, 82px);
+    left: 20px;
+    top: 130px;
+    font-size: 62px;
+    line-height: 1.08;
     margin-left: 0;
   }
 
   .hero__date,
   .hero__content p {
     display: block;
-    width: 290px;
+    width: 320px;
     margin-left: 0;
   }
 
   .hero__date {
-    width: 290px;
+    left: 20px;
+    top: 342px;
+    width: 320px;
     height: 48px;
-    margin-top: 22px;
+    margin-top: 0;
   }
 
   .hero__date img {
@@ -1241,11 +1317,24 @@ h3 {
   }
 
   .hero__content p {
-    margin-bottom: 28px;
+    left: 20px;
+    top: 397px;
+    width: 320px;
+    margin-bottom: 0;
     font-size: 12px;
   }
 
+  .hero__content p::after {
+    left: 143px;
+    top: 30px;
+    width: 5px;
+    height: 5px;
+    box-shadow: 16px 0 0 #b4b4b4;
+  }
+
   .hero__actions {
+    left: 18px;
+    top: 444px;
     width: min(320px, 100%);
     gap: 10px;
   }
@@ -1268,17 +1357,25 @@ h3 {
   }
 
   .hero__paper {
-    display: block;
+    display: none;
+    top: 0;
     width: 430px;
     height: 704px;
     clip-path: path("M0 0H348C341 46 354 83 374 126C398 180 405 255 386 326C373 371 360 395 336 411C307 430 322 480 294 521C262 569 171 604 70 584H0Z");
   }
 
   .hero__lemons {
-    display: block;
-    top: 470px;
+    display: none;
+    top: 520px;
     left: -22px;
     width: 360px;
+  }
+
+  .hero__bg-left {
+    left: -12px;
+    top: 16px;
+    width: 720px;
+    height: auto;
   }
 
   .hero__decor--leaves-a,
