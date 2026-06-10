@@ -1,0 +1,7 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 51.9972 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon_Arrow_Next">
+<rect width="51.9972" height="52" rx="25.9986" fill="var(--fill-0, black)" fill-opacity="0.01"/>
+<rect x="0.92" y="0.92" width="50.1572" height="50.16" rx="25.0786" stroke="var(--stroke-0, #606060)" stroke-opacity="0.5" stroke-width="1.84"/>
+<path id="Vector" d="M35.2341 19.56L37.0386 21.4756L27.2039 31.9093C27.0463 32.0775 26.8589 32.2109 26.6525 32.302C26.4461 32.3931 26.2247 32.44 26.0012 32.44C25.7776 32.44 25.5562 32.3931 25.3498 32.302C25.1434 32.2109 24.956 32.0775 24.7984 31.9093L14.9586 21.4756L16.7631 19.5618L25.9986 29.3546L35.2341 19.56Z" fill="var(--fill-0, #959595)"/>
+</g>
+</svg>

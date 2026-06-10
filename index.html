@@ -1,253 +1,261 @@
-﻿<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Приглашение на свадьбу Артем & Валерия</title>
-  <meta name="description" content="Свадебное приглашение Артема и Валерии. 25 июля 2026 года." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Noto+Serif:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-  <main class="page">
-    <section class="hero" id="top">
-      <header class="site-header">
-        <nav class="nav" aria-label="Навигация по приглашению">
-          <a class="nav__brand" href="#top">История «мы» начинается здесь!</a>
-          <div class="nav__links">
-            <a href="#invitation">Приглашение</a>
-            <a href="#story">Наша история</a>
-            <a href="#details">Детали</a>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Артем & Валерия | Приглашение на свадьбу</title>
+    <meta name="description" content="Свадебное приглашение Артема и Валерии на 25 июля 2026 года.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Marck+Script&family=Noto+Serif:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#invitation">История <strong>«мы»</strong> начинается здесь!</a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a class="nav-link nav-link-active" href="#invitation">Приглашение</a>
+        <a class="nav-link" href="#story">Наша история</a>
+        <a class="nav-link" href="#details">Детали</a>
+        <a class="nav-cta" href="#rsvp">Подтвердить статус</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <img class="hero-left-bg" src="assets/hero-left-fon(3).png" alt="" aria-hidden="true">
+        <img class="hero-right-bg" src="assets/hero-right-fon.png" alt="" aria-hidden="true">
+        <div class="hero-left">
+          <h1>Артем <span>&</span><br>Валерия</h1>
+          <img class="hero-subtitle" src="assets/limon-date-hero.png" alt="25 июля 2026. Мы станем семьей">
+          <div class="hero-actions">
+            <a class="button button-primary" href="#rsvp">Подтвердить присутствие</a>
+            <a class="button button-secondary" href="#invitation">Узнать больше о свадьбе</a>
           </div>
-          <a class="nav__button" href="#rsvp">Подтвердить статус</a>
-        </nav>
-      </header>
-
-      <img class="hero__decor hero__decor--side" src="files/1%20%D0%B1%D0%BB%D0%BE%D0%BA/Vector%203.png" alt="" aria-hidden="true" />
-      <img class="hero__decor hero__decor--leaves-a" src="files/1%20%D0%B1%D0%BB%D0%BE%D0%BA/vecteezy_digital-drawing-of-a-group-of-black-leaves_11048709%201.png" alt="" aria-hidden="true" />
-      <img class="hero__decor hero__decor--leaves-b" src="files/1%20%D0%B1%D0%BB%D0%BE%D0%BA/vecteezy_digital-drawing-of-a-group-of-black-leaves_11048709%202.png" alt="" aria-hidden="true" />
-      <img class="hero__bg-left" src="files/generated/figma-bg-left.png" alt="" aria-hidden="true" />
-      <div class="hero__paper" aria-hidden="true"></div>
-      <img class="hero__lemons" src="files/generated/figma-hero-lemons.png" alt="" aria-hidden="true" />
-
-      <div class="hero__photo" aria-hidden="true">
-        <img src="files/generated/figma-hero-photo.png" alt="" />
-      </div>
-
-      <div class="hero__content">
-        <h1>Артем <span>&</span><br />Валерия</h1>
-        <div class="hero__date">
-          <span></span>
-          <img class="hero__date-lemon" src="files/generated/figma-date-lemon.png" alt="" aria-hidden="true" />
-          <img src="files/1%20%D0%B1%D0%BB%D0%BE%D0%BA/25.%D0%B8%D1%8E%D0%BB%D1%8F.2026.png" alt="25 июля 2026" />
-          <span></span>
         </div>
-        <p>Мы станем семьей</p>
-        <div class="hero__actions">
-          <a class="button button--primary" href="#rsvp">Подтвердить присутствие</a>
-          <a class="button button--ghost" href="#details">Подробнее о свадьбе</a>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="intro" id="invitation">
-      <div class="intro__inner">
-        <h2>Дорогие родные и друзья!</h2>
-        <p>
-          С огромной радостью мы приглашаем вас разделить с нами самый важный день в нашей жизни — день рождения нашей семьи.
-          Очень ждем вас на нашем свадебном торжестве, чтобы вместе отпраздновать начало нашей семьи.
-        </p>
-        <p class="intro__signature">С любовью Артем и Валерия!</p>
-        <div class="intro__signatures" aria-hidden="true">
-          <img src="files/generated/figma-signature-1.png" alt="" />
-          <img src="files/generated/figma-signature-2.png" alt="" />
+      <section class="invitation" id="invitation">
+        <div class="invitation-inner">
+          <h2>Дорогие наши родные<br>и друзья!</h2>
+          <p>С большой радостью приглашаем вас разделить с нами особенный день — день, когда мы станем семьей. Нам очень хочется провести его с самыми близкими людьми. Будем счастливы разделить с Вами эту радость и вместе отпраздновать начало новой главы нашей семьи.</p>
+          <p class="love">С любовью Арт<span class="signature-anchor">ем и Валерия!<img class="signature-image" src="assets/podpic.png" alt="" aria-hidden="true"></span></p>
         </div>
-      </div>
+      </section>
 
-      <div class="info-grid">
+      <section class="quick-info" aria-label="Краткая информация о свадьбе">
         <article>
-          <span class="card-icon card-icon--calendar" aria-hidden="true"></span>
+          <img src="assets/calendar-date.svg" alt="" aria-hidden="true">
           <h3>25 июля 2026 г.</h3>
-          <p>День, когда мы скажем друг другу «Да» и отпразднуем наше событие вместе с вами!</p>
+          <p>День, когда мы скажем друг другу «Да» и разделим эту радость вместе с Вами🤗</p>
         </article>
         <article>
-          <span class="card-icon card-icon--building" aria-hidden="true"></span>
+          <img src="assets/registration-brak.svg" alt="" aria-hidden="true">
           <h3>Регистрация брака</h3>
-          <p>и фотосессия молодоженов пройдут в г. Нижнем Новгороде, в <a href="https://yandex.ru/maps/" target="_blank" rel="noreferrer">Нижегорodском Доме бракосочетания →</a></p>
+          <p>Регистрация и фотосессия молодожёнов пройдут в Нижнем Новгороде, в <a href="https://yandex.ru/profile/1109832917?lang=ru" target="_blank">Нижегородском доме бракосочетания →</a></p>
         </article>
         <article>
-          <span class="card-icon card-icon--utensils" aria-hidden="true"></span>
-          <h3>Торжественный банкет</h3>
-          <p>и фотосессия с гостями пройдет в кафе “Березка”, г. Павлово, Зеленый парк</p>
-          <a href="https://yandex.ru/maps/" target="_blank" rel="noreferrer">Открыть в картах →</a>
+          <img src="assets/Icon-lanch.svg" alt="" aria-hidden="true">
+          <h3>Свадебный ужин</h3>
+          <p>Ждём вас в <a href="https://yandex.ru/maps/org/beryozka/177861312967/" target="_blank">кафе «Берёзка», г. Павлово →</a>. Будем обниматься, фотографироваться и праздновать этот день вместе.</p>
         </article>
-      </div>
-    </section>
+      </section>
 
-    <section class="story" id="story">
-      <h2>Наша история началась в Муроме</h2>
-      <div class="story__gallery" aria-label="Фотографии нашей истории">
-        <figure class="story__item story__item--active">
-          <img src="files/generated/figma-story-cinema.png" alt="Билеты в кино из начала истории Артема и Валерии" />
-          <figcaption>
-            <span>2019 год, поступление в институт</span>
-            Один разговор про кино на студенческой кухне перевернул всю жизнь
-          </figcaption>
-        </figure>
-        <figure class="story__item">
-          <img src="files/generated/figma-story-selfie.png" alt="Совместное фото Артема и Валерии" />
-        </figure>
-        <figure class="story__item">
-          <img src="files/generated/figma-story-couple.png" alt="Артем и Валерия на прогулке" />
-        </figure>
-      </div>
-      <div class="story__pager" aria-hidden="true">
-        <button type="button">‹</button>
-        <button type="button">›</button>
-      </div>
-    </section>
-
-    <section class="timeline" id="details">
-      <h2>Тайминг дня</h2>
-      <div class="timeline__place timeline__place--green">Нижний Новгород</div>
-      <div class="timeline__list">
-        <article>
-          <time>10:40</time>
-          <div>
-            <h3>Регистрация брака</h3>
-            <p>В связи с ограниченным количеством мест в зале торжества на данную часть мероприятия приглашены только близкие. Благодарим за понимание и с нетерпением ждём встречи со всеми гостями уже на праздновании!</p>
+      <section class="story" id="story">
+        <p class="script-title">Путь к счастью</p>
+        <h2>Наша история началась в Муроме</h2>
+        <div class="story-carousel" aria-label="Карусель фотографий нашей истории">
+          <div class="story-track">
+            <figure class="story-card is-active">
+              <img src="assets/story-2.png" alt="Совместное селфи">
+              <figcaption><span>2019 год, поступление в институт</span>Один разговор про кино на студенческой кухне перевернул всю жизнь</figcaption>
+            </figure>
+            <figure class="story-card">
+              <img src="assets/story-3.png" alt="Артем и Валерия вместе">
+              <figcaption><span>2021 год, всегда рядом</span>Мы учились быть командой и беречь наши общие моменты</figcaption>
+            </figure>
+            <figure class="story-card">
+              <img src="assets/story-4.png" alt="Прогулка у воды">
+              <figcaption><span>2023 - 2025 год, едем дальше</span>Покорение нового города, учеба в магистратуре и новые приключения</figcaption>
+            </figure>
+            <figure class="story-card">
+              <img src="assets/story-5.png" alt="Осенний поцелуй">
+              <figcaption><span>Теплые осени</span>Каждый год добавлял в нашу историю новые любимые воспоминания</figcaption>
+            </figure>
+            <figure class="story-card">
+              <img src="assets/story-6.png" alt="Счастливый день с документами">
+              <figcaption><span>2025 год, новый этап</span>Становилось всё яснее: впереди нас ждет большая общая глава</figcaption>
+            </figure>
+            <figure class="story-card">
+              <img src="assets/story-7.png" alt="Праздничное фото пары">
+              <figcaption><span>2025 год, новый этап</span>27.12.2025 “Дааа!”</figcaption>
+            </figure>
           </div>
-        </article>
-        <article>
-          <time>11:00</time>
-          <div>
-            <h3>Фотосессия молодоженов</h3>
-            <p>Нежные и теплые воспоминания о важном дне в жизни.</p>
-          </div>
-        </article>
-      </div>
-      <div class="timeline__place timeline__place--gold">Павлово</div>
-      <div class="timeline__list">
-        <article>
-          <time>15:30</time>
-          <div>
-            <h3>Сбор гостей</h3>
-            <p>Мы будем рады встретить вас в городе Павлово в кафе “Берёзка”. Пока собираются гости, для вас будет подготовлен лёгкий фуршет, уютная атмосфера для общения и знакомства, а также небольшие активности.</p>
-          </div>
-        </article>
-        <article>
-          <time>16:00</time>
-          <div>
-            <h3>Поздравления и фотосессия с молодожёнами</h3>
-            <p>После встречи гостей мы будем рады лично принять ваши тёплые поздравления и сохранить эти счастливые моменты на память в совместных фотографиях.</p>
-          </div>
-        </article>
-        <article>
-          <time>17:00</time>
-          <div>
-            <h3>Начало банкета</h3>
-            <p>Приглашаем вас разделить с нами праздничный вечер, наполненный тёплыми словами, улыбками, танцами и счастливыми моментами.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="dresscode" id="dresscode">
-      <h2>Пожелания в одежде</h2>
-      <div class="dresscode__body">
-        <div class="dresscode__text">
-          <p>Нам будет очень приятно, если при выборе образов вы отдадите предпочтение спокойным и мягким оттенкам. Это поможет создать красивую и гармоничную атмосферу нашего праздника.</p>
-          <p class="dresscode__note">Мягкий оттенок может быть у любого цвета, мы уверенны - у вас в гардеробе они тоже есть! Вот примеры (справа мягкий, слева яркий):</p>
-          <div class="swatches" aria-label="Примеры оттенков">
-            <span style="--c:#ffb962"></span><span style="--c:#f4ddbd"></span>
-            <span style="--c:#78df7c"></span><span style="--c:#d8e8d9"></span>
-            <span style="--c:#ff8768"></span><span style="--c:#ffd8ce"></span>
-            <span style="--c:#214d27"></span><span style="--c:#59695b"></span>
-            <span style="--c:#1e16ff"></span><span style="--c:#7772ff"></span>
-            <span style="--c:#ffffff"></span><span style="--c:#ffa9a9"></span>
+          
+          <p class="carousel-caption" aria-live="polite"></p>
+          <div class="story-controls">
+            <button class="carousel-prev" type="button" aria-label="Предыдущее фото">‹</button>
+            <button class="carousel-next" type="button" aria-label="Следующее фото">›</button>
           </div>
         </div>
-        <div class="dresscode__gallery">
-          <img src="files/generated/figma-dress-suit.png" alt="Светлый костюм" />
-          <img src="files/generated/figma-dress-shoes.png" alt="Черные туфли" />
-          <img src="files/generated/figma-dress-fabric.png" alt="Зеленая ткань" />
-          <img src="files/generated/figma-dress-detail.png" alt="Детали образа" />
+      </section>
+
+      <section class="details" id="details">
+        <p class="script-title">Где и когда?</p>
+        <h2>Детали торжества</h2>
+        <div class="timeline">
+          <div class="timeline-place">Нижний новгород</div>
+          <article>
+            <time>10:40</time>
+            <div>
+              <h3>Мы скажем друг другу «Да»</h3>
+              <p>В этот момент мы официально станем семьёй. Регистрация пройдёт в очень узком кругу: в зале ограничено количество мест (до 10 человек), поэтому рядом с нами будут только родители и несколько самых близких людей. Мы очень ждём встречи с каждым из вас на празднике в кафе «Берёзка», где сможем обняться, пообщаться и отметить этот день вместе.</p>
+            </div>
+          </article>
+          <article>
+            <time>11:00</time>
+            <div>
+              <h3>Наша первая семейная фотосессия</h3>
+              <p>После регистрации сделаем несколько важных кадров с родными, которые будут рядом в этот момент. А затем ненадолго отправимся на фотосессию вдвоём, чтобы сохранить нежные и теплые воспоминания о важном дне в жизни.</p>
+            </div>
+          </article>
+          <div class="timeline-place timeline-place-warm">Павлово</div>
+          <article>
+            <time>15:30</time>
+            <div>
+              <h3>Встречаем гостей в уютном кафе</h3>
+              <p>Главное торжество, праздничный ужин, пройдет в г. Павлово! Ждём вас в кафе «Берёзка». Можно будет спокойно приехать, познакомиться, пообщаться, угоститься лёгким фуршетом и настроиться на тёплый вечер.</p>
+            </div>
+          </article>
+          <article class="timeline-featured">
+            <time>16:00</time>
+            <div>
+              <span class="timeline-featured-dot" aria-hidden="true"></span>
+              <h3>Поздравления, объятия и совместные фото</h3>
+              <p>После встречи гостей уделим время поздравлениям: сначала тёплые слова в микрофон скажут родители и крёстные, а затем будем рады лично принять пожелания от каждого — уже без микрофона. Параллельно будет работать фотограф, чтобы сохранить ваши улыбки, объятия и наши совместные фотографии.</p>
+            </div>
+          </article>
+          <article>
+            <time>17:00<br>—22:00</time>
+            <div>
+              <h3>Праздничный ужин, конкурсы и танцы!</h3>
+              <p>Приглашаем вас разделить с нами праздничный вечер, наполненный тёплыми словами, улыбками, танцами, добрыми конкурсами и счастливыми моментами. Будем вкусно ужинать, радоваться, обниматься и веселиться столько, сколько хватит сил и настроения!</p>
+            </div>
+          </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="extras">
-      <h2>Что еще будет на свадьбе?</h2>
-      <div class="extras__grid">
-        <article>
-          <h3>Подарки</h3>
-          <p>Лучше в семейный бюджет :) Нам важно видеть вас рядом и разделить этот день с теми, кого любим.</p>
-        </article>
-        <article>
-          <h3>Поздравления в европейском формате</h3>
-          <p>У нас будет европейский формат поздравлений. Будем рады коротким, теплым словам без длинных тостов.</p>
-        </article>
-        <article>
-          <h3>The Gift</h3>
-          <p>Your presence is our greatest gift. If you wish to honor us further, a contribution to our New Home Fund would be warmly appreciated.</p>
-        </article>
-        <article class="extras__image-card">
-          <div>
-            <h3>Второй день</h3>
-            <p>Для восстановления сил после свадьбы мы приглашаем вас на второй день. О нем мы расскажем чуть позже на этом сайте.</p>
+      <section class="contact-box">
+        <img class="phone-icon" src="assets/phone.svg" alt="">
+        <div>
+          <h2>Если что-то осталось непонятным — напишите или позвоните жениху</h2>
+          <p><a href="tel:+79506230706">+7(950)623-07-06</a> <span>(с 9:30 - 22:00)</span> // <strong>Телеграмм:</strong> <a href="https://t.me/artem_lapys">@artem_lapys</a></p>
+        </div>
+        <img class="contact-flower" src="assets/dress.png" alt="" aria-hidden="true">
+      </section>
+
+      <section class="dress-code" id="dress-code">
+        <h2>Мягкие оттенки для тёплого дня</h2>
+        <div class="dress-grid">
+          <div class="dress-copy">
+            <p>Если у вас будет возможность, будем очень рады видеть вас в спокойных и мягких оттенках — это поможет создать красивую и гармоничную атмосферу праздника. А если подходящего образа не найдётся, ничего страшного: <u>для нас самое главное — ваше присутствие в этот день.</u></p>
+            <p class="palette-note">Здесь нет строгой палитры, просто мягкие цвета и легкое настроение.</p>
+            <div class="palette-controls" aria-label="Выбор пастельного цвета">
+              <button class="swatch is-selected" type="button" data-color="honey" style="--swatch:#ffc26f" aria-label="Теплый медовый"></button>
+              <button class="swatch" type="button" data-color="mint" style="--swatch:#9fe0a2" aria-label="Мятный"></button>
+              <button class="swatch" type="button" data-color="peach" style="--swatch:#ffb09f" aria-label="Персиковый"></button>
+              <button class="swatch" type="button" data-color="sage" style="--swatch:#8da07b" aria-label="Шалфейный"></button>
+              <button class="swatch" type="button" data-color="blue" style="--swatch:#466dff" aria-label="Синий"></button>
+              <button class="swatch" type="button" data-color="red" style="--swatch:#FF7E7E" aria-label="Красный"></button>
+              <button class="swatch" type="button" data-color="cream" style="--swatch:#fff7e2" aria-label="Светлый"></button>
+            </div>
           </div>
-          <img src="files/generated/lake-figma.png" alt="Пейзаж у воды" />
-        </article>
-      </div>
-    </section>
+          <div class="dress-looks" aria-live="polite" aria-label="Материальные карточки выбранных оттенков"></div>
+        </div>
+      </section>
 
-    <section class="rsvp" id="rsvp">
-      <div class="rsvp-card">
-        <div class="rsvp-card__icon" aria-hidden="true"></div>
-        <h2>Присоединитесь к торжеству?</h2>
-        <p>Пожалуйста заполните эту форму до 01 июля 2026 года. Нам нужно все рассчитать :)</p>
-        <form class="rsvp-form">
-          <label>
-            <span>Ваше имя и фамилия</span>
-            <input type="text" name="name" placeholder="John Doe" autocomplete="name" />
-          </label>
-          <label>
-            <span>Будет ли с вами кто-то еще?</span>
-            <input type="text" name="guest" placeholder="Jane Doe" />
-          </label>
-          <fieldset>
-            <legend>Attending Events</legend>
-            <div class="chips">
-              <button class="chip" type="button">Day 1</button>
-              <button class="chip" type="button">Day 2</button>
-              <button class="chip" type="button">Both</button>
+      <section class="extras">
+        <h2>Что еще будет на свадьбе?</h2>
+        <div class="extras-grid">
+          <article>
+            <h3>Подарки</h3>
+            <p>Ваше присутствие — уже огромная радость для нас. Мы очень мечтаем о красивом медовом путешествии, поэтому вместо подарков и букетов будем благодарны за вклад в нашу поездку.</p>
+          </article>
+          <article>
+            <h3>Поздравления в европейском формате</h3>
+            <p>В самом начале вечера в микрофон нас поздравят родители и крестные. <br>А дальше можно будет подойти к нам лично: обняться, сказать пару слов, сфотографироваться и спокойно пообщаться за фуршетом.</p>
+          </article>
+          <article>
+            <h3>Цветы и букеты</h3>
+            <p>Мы будем рады, если вместо цветов вы выберете что-то более практичное для нашей новой семейной жизни. Так ваше внимание станет частью наших общих планов и приятных воспоминаний.</p>
+          </article>
+          <article class="second-day">
+            <div>
+              <h3>Второй день</h3>
+              <p>После свадьбы мы приглашаем вас на второй день — без спешки, волнения и тайминга.<br><br>Подробности появятся чуть позже на этом сайте.</p>
             </div>
-          </fieldset>
-          <fieldset>
-            <legend>Чем вы будете травиться?</legend>
-            <div class="chips">
-              <button class="chip" type="button">Самогон Морозовых</button>
-              <button class="chip" type="button">Сюда не нажимать</button>
-              <button class="chip" type="button">Сюда не нажимать</button>
-            </div>
-          </fieldset>
-          <label class="rsvp-form__wide">
-            <span>Dietary Notes</span>
-            <textarea name="notes" placeholder="Allergies or preferences..."></textarea>
+            <img src="assets/lakeside.png" alt="Озеро">
+          </article>
+        </div>
+      </section>
+
+      <section class="rsvp" id="rsvp">
+        <form class="rsvp-form" novalidate>
+          <img class="rsvp-decor" src="assets/rsvp-decor.png" alt="" aria-hidden="true">
+          <h2>Подтверждение<br>статуса гостя <span>🤍</span></h2>
+          <p>Пожалуйста заполните эту форму до 1 июля 2026 года, чтобы мы успели все рассчитать!</p>
+
+          <label>Ваше Имя и Фамилия: *
+            <input name="name" type="text" placeholder="Иван Иванов" required>
           </label>
-          <button class="button button--primary rsvp-form__wide" type="submit">Send<br />RSVP</button>
+
+          <fieldset class="choice-row">
+            <legend>Планируете ли присутствие? *</legend>
+            <label><input name="attendance" type="radio" value="Да, приду!" required>Да, приду!</label>
+            <label><input name="attendance" type="radio" value="К сожалению, нет">К сожалению, нет</label>
+            <label><input name="attendance" type="radio" value="Пока не знаю">Пока не знаю</label>
+          </fieldset>
+
+          <label>Укажите количество гостей: *
+            <select name="guests" required>
+              <option value="">Я буду один</option>
+              <option>Я буду один</option>
+              <option>Буду с парой</option>
+              <option>Буду с семьей</option>
+            </select>
+          </label>
+
+          <fieldset class="drink-grid">
+            <legend>Предпочтение в напитках(выберите несколько): *</legend>
+            <label><input name="drinks" type="checkbox" value="Красное вино">Красное вино</label>
+            <label><input name="drinks" type="checkbox" value="Белое вино">Белое вино</label>
+            <label><input name="drinks" type="checkbox" value="Крепкий алкоголь">Крепкий алкоголь</label>
+            <label><input name="drinks" type="checkbox" value="Шампанское / Игристое">Шампанское / Игристое</label>
+            <label><input name="drinks" type="checkbox" value="Только безалкогольные напитки">Только безалкогольные напитки</label>
+          </fieldset>
+
+          <label>Пожелания или вопросы к паре:
+            <textarea name="message" rows="4" placeholder="Напишите ваши теплые пожелания или вопросы по свадьбе..."></textarea>
+          </label>
+
+          <button class="button button-primary" type="submit">Отправить ответ</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <footer class="footer">
-      <p>© 2026 Артем & Валерия. Handcrafted with love in Tuscany.</p>
+    <footer class="site-footer">
       <strong>МОРОЗОВЫ</strong>
-      <span>See you at the launch.</span>
+      <span>Увидимся на свадьбе!</span>
+      <p>Артем & Валерия 2026</p>
     </footer>
-  </main>
-  <script src="js/main.js"></script>
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>
