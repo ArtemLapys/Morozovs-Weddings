@@ -166,7 +166,7 @@
           <div class="dress-copy">
             <p>Если у вас будет возможность, будем очень рады видеть вас в спокойных и мягких оттенках — это поможет создать красивую и гармоничную атмосферу праздника. А если подходящего образа не найдётся, ничего страшного: <u>для нас самое главное — ваше присутствие в этот день.</u></p>
             <p class="palette-note">Здесь нет строгой палитры, просто мягкие цвета и легкое настроение.</p>
-            <div class="palette-controls" aria-label="Выбор пастельного цвета">
+            <div class="palette-controls" aria-label="Выбор мягкого цвета">
               <button class="swatch is-selected" type="button" data-color="honey" style="--swatch:#ffc26f" aria-label="Теплый медовый"></button>
               <button class="swatch" type="button" data-color="mint" style="--swatch:#9fe0a2" aria-label="Мятный"></button>
               <button class="swatch" type="button" data-color="peach" style="--swatch:#ffb09f" aria-label="Персиковый"></button>
@@ -211,42 +211,56 @@
           <h2>Подтверждение<br>статуса гостя <span>🤍</span></h2>
           <p>Пожалуйста заполните эту форму до 1 июля 2026 года, чтобы мы успели все рассчитать!</p>
 
-          <label>Ваше Имя и Фамилия: *
+          <label class="rsvp-step rsvp-step-name" data-rsvp-step="name">Ваше Имя и Фамилия: *
             <input name="name" type="text" placeholder="Иван Иванов" required>
           </label>
 
-          <fieldset class="choice-row">
+          <fieldset class="choice-row rsvp-step rsvp-step-attendance" data-rsvp-step="attendance">
             <legend>Планируете ли присутствие? *</legend>
-            <label><input name="attendance" type="radio" value="Да, приду!" required>Да, приду!</label>
-            <label><input name="attendance" type="radio" value="К сожалению, нет">К сожалению, нет</label>
-            <label><input name="attendance" type="radio" value="Пока не знаю">Пока не знаю</label>
+            <label class="attendance-yes"><input name="attendance" type="radio" value="Да, приду!" required><span class="option-icon" aria-hidden="true">✓</span>Да, приду!</label>
+            <label class="attendance-no"><input name="attendance" type="radio" value="К сожалению, нет"><span class="option-icon" aria-hidden="true">—</span>К сожалению, нет</label>
+            <label class="attendance-maybe"><input name="attendance" type="radio" value="Пока не знаю"><span class="option-icon" aria-hidden="true">?</span>Пока не знаю</label>
           </fieldset>
 
-          <label>Укажите количество гостей: *
+          <label class="select-field rsvp-step" data-rsvp-step="guests" hidden>Укажите количество гостей: *
+            <span class="field-icon" aria-hidden="true">☉</span>
             <select name="guests" required>
-              <option value="">Я буду один</option>
-              <option>Я буду один</option>
-              <option>Буду с парой</option>
-              <option>Буду с семьей</option>
+              <option selected>Я буду один</option>
+              <option>Буду с семьей (2 и более гостей)</option>
             </select>
           </label>
 
-          <fieldset class="drink-grid">
+          <div class="guest-fields rsvp-step" data-rsvp-step="guest-names" hidden>
+            <div class="guest-fields-list"></div>
+            <button class="guest-add-button" type="button">+ Добавить еще</button>
+          </div>
+
+          <fieldset class="drink-grid rsvp-step" data-rsvp-step="drinks" hidden>
             <legend>Предпочтение в напитках(выберите несколько): *</legend>
-            <label><input name="drinks" type="checkbox" value="Красное вино">Красное вино</label>
-            <label><input name="drinks" type="checkbox" value="Белое вино">Белое вино</label>
-            <label><input name="drinks" type="checkbox" value="Крепкий алкоголь">Крепкий алкоголь</label>
-            <label><input name="drinks" type="checkbox" value="Шампанское / Игристое">Шампанское / Игристое</label>
-            <label><input name="drinks" type="checkbox" value="Только безалкогольные напитки">Только безалкогольные напитки</label>
+            <label><input name="drinks" type="checkbox" value="Красное вино"><span class="option-icon" aria-hidden="true">🍷</span>Красное вино</label>
+            <label><input name="drinks" type="checkbox" value="Белое вино"><span class="option-icon" aria-hidden="true">🥂</span>Белое вино</label>
+            <label><input name="drinks" type="checkbox" value="Крепкий алкоголь"><span class="option-icon" aria-hidden="true">◆</span>Крепкий алкоголь</label>
+            <label><input name="drinks" type="checkbox" value="Шампанское / Игристое"><span class="option-icon" aria-hidden="true">✦</span>Шампанское / Игристое</label>
+            <label><input name="drinks" type="checkbox" value="Только безалкогольные напитки"><span class="option-icon" aria-hidden="true">◌</span>Только безалкогольные напитки</label>
           </fieldset>
 
-          <label>Пожелания или вопросы к паре:
+          <label class="rsvp-step" data-rsvp-step="message" hidden>Пожелания или вопросы к паре:
             <textarea name="message" rows="4" placeholder="Напишите ваши теплые пожелания или вопросы по свадьбе..."></textarea>
           </label>
 
-          <button class="button button-primary" type="submit">Отправить ответ</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
+          <div class="rsvp-submit-row rsvp-step" data-rsvp-step="submit" hidden>
+            <button class="button button-primary" type="submit">Отправить ответ</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
         </form>
+
+        <div class="rsvp-thanks" hidden>
+          <h2>Спасибо! Мы получили ваш ответ! 🤗</h2>
+          <p>Мы очень ценим, что вы сообщили нам о своём решении. <br> Если у вас появятся вопросы, пожалуйста, обращайтесь к жениху:</p>
+          <p><strong>Артем — <a href="tel:+79506230706">+79506230706</a></strong></p>
+          <p class="rsvp-thanks-signature">С заботой и теплом,<br><strong>Артем и Валерия❤️</strong></p>
+          <button class="rsvp-again" type="button">Заполнить форму еще раз</button>
+        </div>
       </section>
     </main>
 

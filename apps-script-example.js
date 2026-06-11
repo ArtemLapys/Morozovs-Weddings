@@ -12,6 +12,7 @@ function doPost(e) {
       data.name,
       data.attendance,
       data.guests,
+      (data.companionGuests || []).join(", "),
       (data.drinks || []).join(", "),
       data.message,
       data.source,
@@ -25,6 +26,7 @@ function doPost(e) {
         <p><b>Имя:</b> ${data.name}</p>
         <p><b>Статус:</b> ${data.attendance}</p>
         <p><b>Гостей:</b> ${data.guests}</p>
+        <p><b>Дополнительные гости:</b> ${(data.companionGuests || []).join(", ") || "-"}</p>
         <p><b>Напитки:</b> ${(data.drinks || []).join(", ")}</p>
         <p><b>Сообщение:</b> ${data.message || "-"}</p>
       `,
