@@ -68,6 +68,7 @@ textarea {
   padding: clamp(16px, 1.875vw, 36px) clamp(18px, 2.5vw, 48px);
   background: rgba(250, 250, 249, 0.7);
   backdrop-filter: blur(18px);
+  transition: height 0.24s ease, padding 0.24s ease, background 0.24s ease;
 }
 
 .brand {
@@ -75,6 +76,7 @@ textarea {
   font-size: clamp(17px, 1.4vw, 27px);
   line-height: 1.62;
   text-decoration: none;
+  transition: font-size 0.24s ease, line-height 0.24s ease;
 }
 
 .brand strong {
@@ -88,6 +90,7 @@ textarea {
   color: #78716c;
   font-size: clamp(14px, 1.1vw, 21px);
   letter-spacing: -0.025em;
+  transition: gap 0.24s ease, font-size 0.24s ease;
 }
 
 .nav-link {
@@ -112,6 +115,7 @@ textarea {
   line-height: clamp(22px, 1.56vw, 30px);
   text-align: center;
   text-decoration: none;
+  transition: min-width 0.24s ease, padding 0.24s ease, line-height 0.24s ease, border-radius 0.24s ease;
 }
 
 .menu-toggle {
@@ -371,7 +375,7 @@ h2 {
   align-items: center;
   justify-content: flex-start;
   gap: 100px;
-  min-height: 560px;
+  min-height: 410px;
   width: max-content;
   transition: transform 0.55s ease;
   will-change: transform;
@@ -489,7 +493,7 @@ h2 {
 .carousel-caption {
   min-height: 86px;
   max-width: 448px;
-  margin: -8px auto 0;
+  margin: 8px auto 0;
   color: var(--ink);
   font-family: "Noto Serif", Georgia, serif;
   font-size: 20px;
@@ -512,7 +516,6 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin: 25px 15px 0px 350px;
 }
 
 .story-controls button {
@@ -1132,33 +1135,50 @@ h2 {
   border: 0;
 }
 
-.rsvp-step:not([hidden]) {
-  animation: rsvp-step-in 0.36s ease both;
+.rsvp-step {
+  overflow: hidden;
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition:
+    max-height 0.42s ease,
+    margin 0.42s ease,
+    opacity 0.28s ease,
+    transform 0.28s ease;
 }
 
-.rsvp-step[data-rsvp-step="guests"]:not([hidden]) {
-  animation-delay: 0.08s;
+.rsvp-step.is-visible {
+  overflow: visible;
+  max-height: 940px;
+  margin-bottom: 10px;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
-.rsvp-step[data-rsvp-step="drinks"]:not([hidden]) {
-  animation-delay: 0.16s;
+.rsvp-form fieldset.rsvp-step {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.rsvp-step[data-rsvp-step="message"]:not([hidden]),
-.rsvp-step[data-rsvp-step="submit"]:not([hidden]) {
-  animation-delay: 0.12s;
+.rsvp-form fieldset.rsvp-step.is-visible {
+  margin-top: 28px;
+  margin-bottom: 28px;
 }
 
-@keyframes rsvp-step-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
+.rsvp-step[data-rsvp-step="drinks"].is-visible {
+  max-height: 1120px;
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.rsvp-step[data-rsvp-step="guest-names"].is-visible {
+  max-height: 760px;
+}
+
+.rsvp-step[data-rsvp-step="submit"].is-visible {
+  max-height: 180px;
 }
 
 .choice-row,
@@ -1502,6 +1522,31 @@ h2 {
   }
 }
 
+@media (min-width: 1001px) {
+  .site-header.is-compact {
+    height: clamp(68px, 5.2vw, 100px);
+    padding: clamp(10px, 1.15vw, 22px) clamp(18px, 2.08vw, 40px);
+    background: rgba(250, 250, 249, 0.76);
+  }
+
+  .site-header.is-compact .brand {
+    font-size: clamp(15px, 1.2vw, 23px);
+    line-height: 1.42;
+  }
+
+  .site-header.is-compact .site-nav {
+    gap: clamp(18px, 2.9vw, 56px);
+    font-size: clamp(13px, 0.95vw, 18px);
+  }
+
+  .site-header.is-compact .nav-cta {
+    min-width: clamp(148px, 13.5vw, 259px);
+    padding: clamp(7px, 0.52vw, 10px) clamp(20px, 1.56vw, 30px);
+    border-radius: clamp(10px, 0.78vw, 15px);
+    line-height: clamp(20px, 1.35vw, 26px);
+  }
+}
+
 @media (max-width: 920px) {
   .site-header {
     height: 82px;
@@ -1538,7 +1583,7 @@ h2 {
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, top 0.24s ease;
   }
 
   .site-nav.is-open {
@@ -1890,8 +1935,10 @@ h2 {
     height: var(--mobile-header-height);
     gap: 12px;
     padding: clamp(16px, 4.3vw, 25px) clamp(18px, 5.4vw, 28px) clamp(12px, 3.1vw, 16px);
-    background: #fff;
-    backdrop-filter: none;
+    background: rgba(250, 250, 249, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: height 0.24s ease, padding 0.24s ease;
   }
 
   .brand {
@@ -1903,6 +1950,7 @@ h2 {
     font-weight: 500;
     line-height: 1.22;
     letter-spacing: 0;
+    transition: font-size 0.24s ease, line-height 0.24s ease;
   }
 
   .brand strong {
@@ -1923,8 +1971,9 @@ h2 {
     background: var(--green);
     border: 0;
     border-radius: 999px;
-    font-size: clamp(20px, 5.45vw, 28px);
+    font-size: clamp(20px, 5.33vw, 28px);
     line-height: 1;
+    transition: width 0.24s ease, height 0.24s ease, padding 0.24s ease, font-size 0.24s ease;
   }
 
   .menu-toggle span {
@@ -1940,6 +1989,7 @@ h2 {
       linear-gradient(currentColor, currentColor) top / 100% 3px no-repeat,
       linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat,
       linear-gradient(currentColor, currentColor) bottom / 100% 3px no-repeat;
+    transition: width 0.24s ease, height 0.24s ease;
   }
 
   .menu-toggle::after {
@@ -1954,10 +2004,12 @@ h2 {
     gap: 0;
     padding: 14px;
     color: #78716c;
-    background: rgba(251, 249, 244, 0.98);
-    border: 1px solid rgba(84, 99, 86, 0.18);
+    /* background: rgba(250, 250, 249, 0.72); */
+    /* backdrop-filter: blur(18px); */
+    /* -webkit-backdrop-filter: blur(18px); */
+    border: 1px solid rgba(255, 255, 255, 0.42);
     border-radius: 24px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 28px 70px -28px rgba(49, 51, 46, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.46);
     font-size: 18px;
     letter-spacing: 0;
     opacity: 0;
@@ -1972,14 +2024,46 @@ h2 {
     transform: translateY(0);
   }
 
+  .site-header.is-compact {
+    height: clamp(72px, 16vw, 82px);
+    padding-top: clamp(10px, 2.8vw, 16px);
+    padding-bottom: clamp(10px, 2.8vw, 14px);
+  }
+
+  .site-header.is-compact .brand {
+    font-size: clamp(16px, 4.25vw, 22px);
+    line-height: 1.18;
+  }
+
+  .site-header.is-compact .menu-toggle {
+    width: clamp(124px, 37vw, 194px);
+    height: clamp(42px, 8.6vw, 46px);
+    padding-inline: clamp(15px, 4.2vw, 24px);
+    font-size: clamp(18px, 4.8vw, 26px);
+  }
+
+  .site-header.is-compact .menu-toggle::before {
+    width: clamp(20px, 4.6vw, 25px);
+    height: clamp(14px, 3.4vw, 17px);
+  }
+
+  .site-header.is-compact .site-nav {
+    top: calc(clamp(72px, 16vw, 82px) + 10px);
+  }
+
   .nav-link {
     padding: 16px;
     border-radius: 14px;
   }
 
-  .nav-link-active,
   .nav-link:hover {
     background: rgba(84, 99, 86, 0.12);
+    border-color: transparent;
+  }
+
+  .nav-link-active {
+    color: inherit;
+    background: transparent;
     border-color: transparent;
   }
 

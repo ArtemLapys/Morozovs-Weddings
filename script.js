@@ -3,8 +3,17 @@ const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbyWc4RWT7p1wLCgqM
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const navLinks = document.querySelectorAll(".site-nav a");
+const siteHeader = document.querySelector(".site-header");
+let headerScrollFrame;
 
 // Мобильное меню: открытие, закрытие и демонстрация активного пункта "Приглашение".
+function closeSiteMenu() {
+  siteNav.classList.remove("is-open");
+  document.body.classList.remove("menu-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Открыть меню");
+}
+
 menuToggle.addEventListener("click", () => {
   const isOpen = siteNav.classList.toggle("is-open");
   document.body.classList.toggle("menu-open", isOpen);
@@ -14,12 +23,40 @@ menuToggle.addEventListener("click", () => {
 
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    siteNav.classList.remove("is-open");
-    document.body.classList.remove("menu-open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Открыть меню");
+    closeSiteMenu();
   });
 });
+
+document.addEventListener("click", (event) => {
+  if (!siteNav.classList.contains("is-open") || !(event.target instanceof Node)) {
+    return;
+  }
+
+  if (siteNav.contains(event.target) || menuToggle.contains(event.target)) {
+    return;
+  }
+
+  closeSiteMenu();
+});
+
+function updateHeaderCompactState() {
+  const shouldCompact = window.scrollY > 24;
+  siteHeader.classList.toggle("is-compact", shouldCompact);
+}
+
+function requestHeaderCompactUpdate() {
+  if (headerScrollFrame) {
+    return;
+  }
+
+  headerScrollFrame = window.requestAnimationFrame(() => {
+    updateHeaderCompactState();
+    headerScrollFrame = null;
+  });
+}
+
+updateHeaderCompactState();
+window.addEventListener("scroll", requestHeaderCompactUpdate, { passive: true });
 
 // Карусель Мурома: активное фото непрозрачное, остальные приглушены, автопереключение раз в 10 секунд.
 const storyCarousel = document.querySelector(".story-carousel");
@@ -520,6 +557,7 @@ const attendanceRadios = Array.from(document.querySelectorAll('input[name="atten
 const submitButton = rsvpForm.querySelector('button[type="submit"]');
 const submitButtonText = submitButton.textContent;
 const rsvpSteps = {
+  attendance: rsvpForm.querySelector('[data-rsvp-step="attendance"]'),
   guests: rsvpForm.querySelector('[data-rsvp-step="guests"]'),
   guestNames: rsvpForm.querySelector('[data-rsvp-step="guest-names"]'),
   drinks: rsvpForm.querySelector('[data-rsvp-step="drinks"]'),
@@ -554,7 +592,9 @@ function setStepVisibility(step, isVisible) {
     return;
   }
 
-  step.hidden = !isVisible;
+  step.hidden = false;
+  step.classList.toggle("is-visible", isVisible);
+  step.setAttribute("aria-hidden", String(!isVisible));
   step.querySelectorAll("input, select, textarea, button").forEach((control) => {
     control.disabled = !isVisible || (control === submitButton && rsvpSubmitting);
   });
@@ -562,6 +602,14 @@ function setStepVisibility(step, isVisible) {
 
 function isFamilyGuests() {
   return guestsSelect.value.startsWith("Буду с семьей");
+}
+
+function getSelectedAttendance() {
+  return attendanceRadios.find((radio) => radio.checked)?.value || "";
+}
+
+function isAttendingWedding() {
+  return getSelectedAttendance() === "Да, приду!";
 }
 
 function areCompanionGuestsFilled() {
@@ -575,17 +623,22 @@ function areCompanionGuestsFilled() {
 
 function updateRsvpSteps() {
   const hasName = Boolean(nameInput.value.trim());
-  const hasAttendance = attendanceRadios.some((radio) => radio.checked);
-  const showGuests = hasName && hasAttendance;
+  const attendance = getSelectedAttendance();
+  const hasAttendance = Boolean(attendance);
+  const isAttending = isAttendingWedding();
+  const showAttendance = hasName;
+  const showGuests = hasName && hasAttendance && isAttending;
   const showGuestNames = showGuests && isFamilyGuests();
   const showDrinks = showGuests && areCompanionGuestsFilled();
   const hasDrinks = drinkCheckboxes.some((checkbox) => checkbox.checked);
+  const showMessage = hasName && hasAttendance && (!isAttending || (showDrinks && hasDrinks));
 
+  setStepVisibility(rsvpSteps.attendance, showAttendance);
   setStepVisibility(rsvpSteps.guests, showGuests);
   setStepVisibility(rsvpSteps.guestNames, showGuestNames);
   setStepVisibility(rsvpSteps.drinks, showDrinks);
-  setStepVisibility(rsvpSteps.message, showDrinks && hasDrinks);
-  setStepVisibility(rsvpSteps.submit, showDrinks && hasDrinks);
+  setStepVisibility(rsvpSteps.message, showMessage);
+  setStepVisibility(rsvpSteps.submit, showMessage);
 
   if (!showGuestNames) {
     guestAddButton.disabled = true;
@@ -787,7 +840,7 @@ rsvpForm.addEventListener("submit", async (event) => {
 
   const payload = getFormPayload(rsvpForm);
 
-  if (!payload.drinks.length) {
+  if (payload.attendance === "Да, приду!" && !payload.drinks.length) {
     setFormStatus("Выберите хотя бы одно предпочтение в напитках.", "error");
     return;
   }

@@ -145,7 +145,7 @@
             <div>
               <span class="timeline-featured-dot" aria-hidden="true"></span>
               <h3>Поздравления, объятия и совместные фото</h3>
-              <p>После встречи гостей уделим время поздравлениям: сначала тёплые слова в микрофон скажут родители и крёстные, а затем будем рады лично принять пожелания от каждого — уже без микрофона. Параллельно будет работать фотограф, чтобы сохранить ваши улыбки, объятия и наши совместные фотографии.</p>
+              <p>В начале вечера у вас будет возможность лично поздравить нас, вручить подарки и сделать памятные фото. В дальнейшем с микрофоном выступят только родители и крестные, а дальше — общение, танцы и праздничное настроение!</p>
             </div>
           </article>
           <article>
@@ -192,11 +192,11 @@
         <div class="extras-grid">
           <article>
             <h3>Подарки</h3>
-            <p>Ваше присутствие — уже огромная радость для нас. Мы очень мечтаем о красивом медовом путешествии, поэтому вместо подарков и букетов будем благодарны за вклад в нашу поездку.</p>
+            <p>Дорогие гости, мы люди современные: вместо пятого тостера и букета, который проживёт пару дней, будем рады небольшому вкладу в наше семейное будущее. Если вдруг захотите порадовать нас подарком — конвертик станет отличным вариантом. А ваши улыбки, объятия и зажигательные танцы по-прежнему остаются главным подарком для нас!</p>
           </article>
           <article>
             <h3>Поздравления в европейском формате</h3>
-            <p>В самом начале вечера в микрофон нас поздравят родители и крестные. <br>А дальше можно будет подойти к нам лично: обняться, сказать пару слов, сфотографироваться и спокойно пообщаться за фуршетом.</p>
+            <p>Мы отказались от традиционного свадебного одаривания с длинными тостами в микрофон. В начале вечера, в 16:00, у вас будет возможность лично поздравить нас, сделать памятные фотографии и вручить подарки, а остальное время мы посвятим танцам и общению!</p>
           </article>
           <article>
             <h3>Цветы и букеты</h3>
@@ -218,18 +218,18 @@
           <h2>Подтверждение<br>статуса гостя <span>🤍</span></h2>
           <p>Пожалуйста заполните эту форму до 1 июля 2026 года, чтобы мы успели все рассчитать!</p>
 
-          <label class="rsvp-step rsvp-step-name" data-rsvp-step="name">Ваше Имя и Фамилия: *
+          <label class="rsvp-step rsvp-step-name is-visible" data-rsvp-step="name">Ваше Имя и Фамилия: *
             <input name="name" type="text" placeholder="Иван Иванов" required>
           </label>
 
-          <fieldset class="choice-row rsvp-step rsvp-step-attendance" data-rsvp-step="attendance">
+          <fieldset class="choice-row rsvp-step rsvp-step-attendance" data-rsvp-step="attendance" aria-hidden="true">
             <legend>Планируете ли присутствие? *</legend>
             <label class="attendance-yes"><input name="attendance" type="radio" value="Да, приду!" required><span class="option-icon" aria-hidden="true">✓</span>Да, приду!</label>
             <label class="attendance-no"><input name="attendance" type="radio" value="К сожалению, нет"><span class="option-icon" aria-hidden="true">—</span>К сожалению, нет</label>
             <label class="attendance-maybe"><input name="attendance" type="radio" value="Пока не знаю"><span class="option-icon" aria-hidden="true">?</span>Пока не знаю</label>
           </fieldset>
 
-          <label class="select-field rsvp-step" data-rsvp-step="guests" hidden>Укажите количество гостей: *
+          <label class="select-field rsvp-step" data-rsvp-step="guests" aria-hidden="true">Укажите количество гостей: *
             <span class="field-icon" aria-hidden="true">☉</span>
             <select name="guests" required>
               <option selected>Я буду один</option>
@@ -237,12 +237,12 @@
             </select>
           </label>
 
-          <div class="guest-fields rsvp-step" data-rsvp-step="guest-names" hidden>
+          <div class="guest-fields rsvp-step" data-rsvp-step="guest-names" aria-hidden="true">
             <div class="guest-fields-list"></div>
             <button class="guest-add-button" type="button">+ Добавить еще</button>
           </div>
 
-          <fieldset class="drink-grid rsvp-step" data-rsvp-step="drinks" hidden>
+          <fieldset class="drink-grid rsvp-step" data-rsvp-step="drinks" aria-hidden="true">
             <legend>Предпочтение в напитках(выберите несколько): *</legend>
             <label><input name="drinks" type="checkbox" value="Красное вино"><span class="option-icon" aria-hidden="true">🍷</span>Красное вино</label>
             <label><input name="drinks" type="checkbox" value="Белое вино"><span class="option-icon" aria-hidden="true">🥂</span>Белое вино</label>
@@ -251,11 +251,11 @@
             <label><input name="drinks" type="checkbox" value="Только безалкогольные напитки"><span class="option-icon" aria-hidden="true">◌</span>Только безалкогольные напитки</label>
           </fieldset>
 
-          <label class="rsvp-step" data-rsvp-step="message" hidden>Пожелания или вопросы к паре:
+          <label class="rsvp-step" data-rsvp-step="message" aria-hidden="true">Пожелания или вопросы к паре:
             <textarea name="message" rows="4" placeholder="Напишите ваши теплые пожелания или вопросы по свадьбе..."></textarea>
           </label>
 
-          <div class="rsvp-submit-row rsvp-step" data-rsvp-step="submit" hidden>
+          <div class="rsvp-submit-row rsvp-step" data-rsvp-step="submit" aria-hidden="true">
             <button class="button button-primary" type="submit">Отправить ответ</button>
             <p class="form-status" role="status" aria-live="polite"></p>
           </div>
