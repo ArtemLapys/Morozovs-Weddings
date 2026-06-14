@@ -2135,10 +2135,11 @@ h2 {
   }
 
   .hero {
-    min-height: clamp(790px, 184vw, 1760px);
+    min-height: 0;
     margin-top: var(--mobile-header-height);
+    padding-bottom: clamp(28px, 5.8vw, 58px);
     overflow: hidden;
-    background: var(--paper) url("assets/fon-mobile.png") center clamp(8px, 3.5vw, 24px) / 100% auto no-repeat;
+    background: #f7f2eb url("assets/fon-mobile.png") center clamp(8px, 3.5vw, 24px) / 100% auto no-repeat;
   }
 
   .hero-left-bg,
@@ -2147,11 +2148,13 @@ h2 {
   }
 
   .hero-left {
-    top: clamp(24px, 5.7vw, 56px);
+    position: relative;
+    top: auto;
     left: 0;
     right: 0;
     display: flex;
     width: 100%;
+    padding-top: clamp(24px, 5.7vw, 56px);
     align-items: center;
     flex-direction: column;
   }
@@ -2167,6 +2170,12 @@ h2 {
   .hero-subtitle {
     width: clamp(244px, 58vw, 580px);
     margin-top: clamp(18px, 4.7vw, 44px);
+  }
+
+  @media (max-width: 360px) {
+    .hero-subtitle {
+      margin-top: 6px;
+    }
   }
 
   .hero-actions {
