@@ -432,6 +432,11 @@ h2 {
   display: none;
 }
 
+.story-card-clone {
+  display: none;
+  pointer-events: none;
+}
+
 .story-timer {
   --timer-progress: 0deg;
   position: absolute;
@@ -566,6 +571,17 @@ h2 {
   color: #ffffff;
   background: var(--green);
   border-color: var(--green);
+}
+
+.story-controls button:disabled,
+.story-controls button:disabled:hover {
+  color: #9aa19b;
+  background: #ffffff;
+  border-color: #d9ded7;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
 }
 
 .details {
@@ -1787,11 +1803,57 @@ h2 {
 
   .story-card,
   .story-card.is-active {
-    flex: 0 0 78vw;
+    flex: 0 0 56vw;
+    align-self: center;
+    opacity: 0.28;
+    transform: scale(0.82);
+    filter: saturate(0.82) contrast(0.96);
+    transition:
+      opacity 0.35s ease,
+      filter 0.35s ease,
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .story-card:not(.is-active) {
+  .story-card-clone {
+    display: block;
+  }
+
+  .story-carousel.is-at-start .story-card-clone:first-child,
+  .story-carousel.is-at-end .story-card-clone:last-child {
     display: none;
+  }
+
+  .story-carousel {
+    touch-action: pan-y;
+  }
+
+  .story-track {
+    align-items: center;
+    gap: clamp(12px, 3.8vw, 20px);
+    min-height: auto;
+    transition: transform 0.58s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .story-card.is-active {
+    flex-basis: 76vw;
+    opacity: 1;
+    transform: scale(1);
+    filter: none;
+    animation: story-mobile-card-in 0.48s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .story-card:not(.is-active):hover {
+    opacity: 0.34;
+    transform: scale(0.84);
+  }
+
+  .story-card img {
+    border-radius: 18px;
+    transition: box-shadow 0.35s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .story-card.is-active img {
+    animation: story-mobile-image-in 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .story-timer {
@@ -1802,6 +1864,30 @@ h2 {
   .carousel-caption {
     padding: 20px;
     text-align: center;
+  }
+
+  @keyframes story-mobile-card-in {
+    from {
+      opacity: 0.58;
+      transform: scale(0.92);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes story-mobile-image-in {
+    from {
+      transform: scale(0.985);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+    }
+
+    to {
+      transform: scale(1);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.22);
+    }
   }
 
   .timeline article {
