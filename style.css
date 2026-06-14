@@ -1080,6 +1080,26 @@ h2 {
   text-align: center;
 }
 
+.rsvp-form .rsvp-progress-note {
+  max-width: 420px;
+  margin: 18px auto 0;
+  color: #8a8c86;
+  font-family: "Plus Jakarta Sans", Inter, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.24s ease, transform 0.24s ease, max-height 0.24s ease, margin 0.24s ease;
+}
+
+.rsvp-form .rsvp-progress-note.is-hidden {
+  max-height: 0;
+  margin-top: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-4px);
+}
+
 .rsvp-form label,
 .rsvp-form legend {
   display: block;
@@ -1858,6 +1878,12 @@ h2 {
     border-radius: 34px;
   }
 
+  .rsvp-decor {
+    position: static;
+    width: 48px;
+    margin: 0 auto 14px;
+  }
+
   .rsvp-thanks {
     padding: 46px 18px 34px;
     border-radius: 34px;
@@ -1866,6 +1892,18 @@ h2 {
   .rsvp-form h2 {
     font-size: 38px;
     line-height: 38px;
+  }
+
+  .rsvp-form h2 span {
+    display: block;
+    margin-top: 6px;
+    font-size: 34px;
+    line-height: 34px;
+  }
+
+  .rsvp-form .rsvp-progress-note {
+    font-size: 13px;
+    line-height: 20px;
   }
 
   .rsvp-thanks h2 {
@@ -1936,6 +1974,13 @@ h2 {
   .site-footer p {
     top: 252px;
     letter-spacing: 0.28em;
+  }
+}
+
+@media (max-width: 420px) {
+  .rsvp-form h2 {
+    font-size: clamp(31px, 8.8vw, 36px);
+    line-height: 1.08;
   }
 }
 

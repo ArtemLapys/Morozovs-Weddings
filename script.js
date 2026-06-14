@@ -555,6 +555,7 @@ const rsvpAgainButton = document.querySelector(".rsvp-again");
 const nameInput = rsvpForm.querySelector('input[name="name"]');
 const attendanceRadios = Array.from(document.querySelectorAll('input[name="attendance"]'));
 const submitButton = rsvpForm.querySelector('button[type="submit"]');
+const rsvpProgressNote = rsvpForm.querySelector(".rsvp-progress-note");
 const submitButtonText = submitButton.textContent;
 const rsvpSteps = {
   attendance: rsvpForm.querySelector('[data-rsvp-step="attendance"]'),
@@ -639,6 +640,7 @@ function updateRsvpSteps() {
   setStepVisibility(rsvpSteps.drinks, showDrinks);
   setStepVisibility(rsvpSteps.message, showMessage);
   setStepVisibility(rsvpSteps.submit, showMessage);
+  rsvpProgressNote?.classList.toggle("is-hidden", showMessage);
 
   if (!showGuestNames) {
     guestAddButton.disabled = true;
