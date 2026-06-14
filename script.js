@@ -277,20 +277,79 @@ function toggleCarouselPause() {
   carouselTimerFrame = window.requestAnimationFrame(tickCarouselTimer);
 }
 
-prevButton.addEventListener("click", () => {
+function showPrevSlide() {
   renderCarousel(carouselIndex - 1);
   restartCarouselTimer();
+}
+
+function showNextSlide() {
+  renderCarousel(carouselIndex + 1);
+  restartCarouselTimer();
+}
+
+function setupCarouselSwipe() {
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+
+  storyCarousel.addEventListener(
+    "touchstart",
+    (event) => {
+      const touch = event.changedTouches[0];
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+      touchEndX = touchStartX;
+      touchEndY = touchStartY;
+    },
+    { passive: true }
+  );
+
+  storyCarousel.addEventListener(
+    "touchmove",
+    (event) => {
+      const touch = event.changedTouches[0];
+      touchEndX = touch.clientX;
+      touchEndY = touch.clientY;
+    },
+    { passive: true }
+  );
+
+  storyCarousel.addEventListener(
+    "touchend",
+    () => {
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+      const swipeThreshold = Math.max(42, storyCarousel.clientWidth * 0.12);
+
+      if (Math.abs(deltaX) < swipeThreshold || Math.abs(deltaY) > Math.abs(deltaX) * 0.7) {
+        return;
+      }
+
+      if (deltaX < 0) {
+        showNextSlide();
+        return;
+      }
+
+      showPrevSlide();
+    },
+    { passive: true }
+  );
+}
+
+prevButton.addEventListener("click", () => {
+  showPrevSlide();
 });
 
 nextButton.addEventListener("click", () => {
-  renderCarousel(carouselIndex + 1);
-  restartCarouselTimer();
+  showNextSlide();
 });
 
 window.addEventListener("resize", centerActiveCard);
 
 createCarouselTimerButtons();
 prepareCarouselCards();
+setupCarouselSwipe();
 renderCarousel(0);
 watchCarouselStart();
 
