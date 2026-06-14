@@ -532,21 +532,24 @@ h2 {
 
 .story-controls {
   display: flex;
-  justify-content: center;
-  gap: 8px;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 431px;
+  max-width: calc(100% - 40px);
+  margin: 18px auto 0;
 }
 
 .story-controls button {
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   color: #8b948d;
   background: #ffffff;
   border: 1.5px solid #bfc5bd;
   border-radius: 50%;
   font-family: Inter, Arial, sans-serif;
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 300;
   line-height: 1;
   cursor: pointer;
@@ -1864,6 +1867,11 @@ h2 {
   .carousel-caption {
     padding: 20px;
     text-align: center;
+  }
+
+  .story-controls {
+    width: 76vw;
+    max-width: calc(100% - 36px);
   }
 
   @keyframes story-mobile-card-in {
