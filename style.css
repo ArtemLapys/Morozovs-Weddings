@@ -2176,7 +2176,7 @@ h2 {
     max-width: calc(100vw - 44px);
     min-width: min(292px, calc(100vw - 44px));
     gap: clamp(14px, 3vw, 24px);
-    margin: clamp(390px, 99vw, 990px) 0 0;
+    margin: clamp(230px, 78vw, 990px) 0 0;
   }
 
   .hero-actions .button-primary,
