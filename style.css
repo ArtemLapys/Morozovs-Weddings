@@ -367,7 +367,7 @@ h2 {
 }
 
 .story {
-  padding: 0 0 100px;
+  padding: 100px 0;
   overflow: hidden;
   text-align: center;
 }
@@ -1555,6 +1555,13 @@ h2 {
   }
 }
 
+@media (max-width: 990px) {
+  .quick-info {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+}
+
 @media (min-width: 1001px) {
   .site-header.is-compact {
     height: clamp(68px, 5.2vw, 100px);
@@ -1677,7 +1684,6 @@ h2 {
     margin-left: 0;
   }
 
-  .quick-info,
   .extras-grid {
     grid-template-columns: 1fr;
   }
@@ -1762,7 +1768,7 @@ h2 {
   }
 
   .quick-info {
-    padding: 28px 18px 42px;
+    padding: 0 18px 42px;
   }
 
   .quick-info article {
