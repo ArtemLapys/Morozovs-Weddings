@@ -299,6 +299,19 @@ h2 {
   pointer-events: none;
 }
 
+@media (max-width: 970px) {
+  .signature-anchor {
+    display: contents;
+  }
+
+  .signature-image {
+    position: static;
+    width: clamp(180px, 58vw, 260px);
+    max-width: 100%;
+    margin: 8px 0 0 auto;
+  }
+}
+
 .quick-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
