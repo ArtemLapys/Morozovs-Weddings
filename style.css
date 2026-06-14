@@ -537,6 +537,7 @@ h2 {
   width: 431px;
   max-width: calc(100% - 40px);
   margin: 18px auto 0;
+  padding: 0px 0 12px;
 }
 
 .story-controls button {
