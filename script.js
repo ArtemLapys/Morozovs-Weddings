@@ -221,10 +221,9 @@ function tickCarouselTimer(now) {
 
   if (carouselProgress >= 1) {
     if (shouldClampCarouselEdges() && carouselIndex === carouselCards.length - 1) {
-      carouselStartedAt = now;
-      carouselProgress = 0;
+      carouselPaused = true;
+      carouselProgress = 1;
       updateTimerButtonState();
-      carouselTimerFrame = window.requestAnimationFrame(tickCarouselTimer);
       return;
     }
 
