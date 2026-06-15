@@ -420,10 +420,24 @@ watchCarouselStart();
 // Переключение палитры dress code: выбранный цвет слева управляет CSS-карточками справа.
 const palette = [
   { key: "pastel-pink", name: "Мягкий розовый", hex: "#FFD1DC" },
-  { key: "pastel-green", name: "Мягкий зелёный", hex: "#77DD77" },
-  { key: "pastel-blue", name: "Светлый голубой", hex: "#AEC6CF" },
+  { key: "pastel-aquamarine", name: "Светлый аквамариновый", hex: "#B2FFFF" },
   { key: "pastel-yellow", name: "Светлый жёлтый", hex: "#FDFD96" },
+  { key: "pastel-orchid", name: "Светлая орхидея", hex: "#DAB6FC" },
+  { key: "pastel-green", name: "Мягкий зелёный", hex: "#77DD77" },
+  { key: "light-peach", name: "Светло-персиковый", hex: "#FFD8B1" },
+  { key: "sky-blue", name: "Небесно-голубой", hex: "#CFEFFF" },
+  { key: "pastel-coral", name: "Мягкий коралловый", hex: "#F6A6A6" },
+  { key: "pastel-lime", name: "Светлый лайм", hex: "#D8F3A3" },
   { key: "lavender", name: "Лавандовый", hex: "#E6E6FA" },
+  { key: "powder-blue", name: "Пудрово-голубой", hex: "#B0E0E6" },
+  { key: "icy-blue", name: "Ледяной голубой", hex: "#D6F6FF" },
+  { key: "mint-blue", name: "Мятно-голубой", hex: "#C7F9F1" },
+  { key: "seafoam", name: "Морская пена", hex: "#B0EAD7" },
+  { key: "eucalyptus", name: "Эвкалиптовый", hex: "#CDE8D5" },
+  { key: "light-mint", name: "Светло-мятный", hex: "#CFFFE5" },
+  { key: "pale-blue", name: "Бледно-голубой", hex: "#D7ECFF" },
+  { key: "rose-quartz", name: "Розовый кварц", hex: "#F7CAC9" },
+  { key: "pastel-blue", name: "Светлый голубой", hex: "#AEC6CF" },
   { key: "pastel-orange", name: "Мягкий оранжевый", hex: "#FFB347" },
   { key: "soft-pink", name: "Нежно-розовый", hex: "#FADADD" },
   { key: "pastel-turquoise", name: "Мягкий бирюзовый", hex: "#99C5C4" },
@@ -432,49 +446,35 @@ const palette = [
   { key: "mint", name: "Мятный", hex: "#AAF0D1" },
   { key: "pastel-purple", name: "Мягкий фиолетовый", hex: "#CBAACB" },
   { key: "apricot", name: "Абрикосовый", hex: "#FBCEB1" },
-  { key: "sky-blue", name: "Небесно-голубой", hex: "#CFEFFF" },
   { key: "powder-pink", name: "Пудрово-розовый", hex: "#F4C2C2" },
-  { key: "light-mint", name: "Светло-мятный", hex: "#CFFFE5" },
   { key: "cream", name: "Кремовый", hex: "#FFFDD0" },
   { key: "lilac", name: "Сиреневый", hex: "#D8BFD8" },
   { key: "pastel-red", name: "Мягкий красный", hex: "#FF6961" },
-  { key: "pastel-aquamarine", name: "Светлый аквамариновый", hex: "#B2FFFF" },
   { key: "warm-gray", name: "Тёплый серый", hex: "#D8D0C1" },
   { key: "peach", name: "Персиковый", hex: "#FFE5B4" },
   { key: "periwinkle", name: "Барвинковый", hex: "#CCCCFF" },
   { key: "pistachio", name: "Фисташковый", hex: "#C1E1C1" },
-  { key: "rose-quartz", name: "Розовый кварц", hex: "#F7CAC9" },
   { key: "buttercream", name: "Сливочный", hex: "#FFF1B5" },
   { key: "light-turquoise", name: "Светлая бирюза", hex: "#AFEEEE" },
-  { key: "light-peach", name: "Светло-персиковый", hex: "#FFD8B1" },
   { key: "pale-lilac", name: "Бледно-лиловый", hex: "#E0BBE4" },
   { key: "sage", name: "Шалфейный", hex: "#B2AC88" },
-  { key: "pastel-coral", name: "Мягкий коралловый", hex: "#F6A6A6" },
-  { key: "pale-blue", name: "Бледно-голубой", hex: "#D7ECFF" },
   { key: "pastel-lemon", name: "Светлый лимонный", hex: "#FFFACD" },
   { key: "pastel-beige", name: "Светлый бежевый", hex: "#F5E6CC" },
   { key: "pale-green", name: "Бледно-зелёный", hex: "#D0F0C0" },
-  { key: "pastel-orchid", name: "Светлая орхидея", hex: "#DAB6FC" },
   { key: "pale-pink", name: "Бледно-розовый", hex: "#FFE4E1" },
-  { key: "mint-blue", name: "Мятно-голубой", hex: "#C7F9F1" },
   { key: "cream-orange", name: "Кремово-оранжевый", hex: "#FAD6A5" },
   { key: "pastel-blue-deep", name: "Мягкий синий", hex: "#A7C7E7" },
-  { key: "pastel-lime", name: "Светлый лайм", hex: "#D8F3A3" },
   { key: "milky", name: "Молочный", hex: "#FFF8E7" },
   { key: "soft-watermelon", name: "Нежный арбузный", hex: "#FC9C9C" },
   { key: "pale-yellow", name: "Бледно-жёлтый", hex: "#FFFFCC" },
   { key: "pastel-cyan", name: "Светлый циан", hex: "#BDEDF2" },
   { key: "pastel-tangerine", name: "Светлый мандариновый", hex: "#FFCC99" },
   { key: "pastel-indigo", name: "Мягкий индиго", hex: "#C3B1E1" },
-  { key: "seafoam", name: "Морская пена", hex: "#B0EAD7" },
   { key: "cream-pink", name: "Кремово-розовый", hex: "#FDDDE6" },
-  { key: "powder-blue", name: "Пудрово-голубой", hex: "#B0E0E6" },
   { key: "champagne", name: "Шампань", hex: "#F7E7CE" },
-  { key: "eucalyptus", name: "Эвкалиптовый", hex: "#CDE8D5" },
   { key: "pastel-salmon", name: "Светлый лососевый", hex: "#FFB3A7" },
   { key: "pastel-sand", name: "Светлый песочный", hex: "#EED9B6" },
   { key: "pastel-fuchsia", name: "Мягкая фуксия", hex: "#F8BBD0" },
-  { key: "icy-blue", name: "Ледяной голубой", hex: "#D6F6FF" },
   { key: "pastel-gold", name: "Мягкое золото", hex: "#E6D690" },
   { key: "soft-olive", name: "Нежный оливковый", hex: "#D9E4B5" },
   { key: "peach-pink", name: "Персиково-розовый", hex: "#FFDAB9" },
@@ -482,15 +482,13 @@ const palette = [
 ];
 
 const shadeVariants = ["silk", "paper", "glass", "shadow"];
-const PALETTE_INTERVAL = 7000;
-const SHADE_TRANSITION_MS = 520;
+const SHADE_SCROLL_SPEED = 56;
+const SHADE_SNAP_MS = 580;
+const SHADE_INTERACTION_RESUME_MS = 1200;
 const swatches = Array.from(document.querySelectorAll(".swatch"));
 const dressLooks = document.querySelector(".dress-looks");
+const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 let paletteIndex = 0;
-let paletteTimerFrame;
-let paletteStartedAt = 0;
-let paletteProgress = 0;
-let shadeRenderTimer;
 
 function clampColor(value) {
   return Math.max(0, Math.min(255, Math.round(value)));
@@ -542,16 +540,14 @@ function getPaletteIndex(color) {
   return index === -1 ? 0 : index;
 }
 
-function getShadeMoodboardItems(selectedIndex) {
-  return [0, 1, 2, 3].map((offset) => palette[(selectedIndex + offset) % palette.length]);
-}
-
 function ShadeCard(item, index) {
   const card = document.createElement("article");
   const variant = shadeVariants[index % shadeVariants.length];
-  card.className = `shade-card shade-card-${variant}${index === 0 ? " shade-card-featured" : ""}`;
+  card.className = `shade-card shade-card-${variant}`;
   card.setAttribute("aria-label", item.name);
-  card.style.setProperty("--shade-delay", `${index * 85}ms`);
+  card.setAttribute("role", "button");
+  card.tabIndex = 0;
+  card.dataset.paletteIndex = String(index);
   card.style.setProperty("--shade", item.hex);
   card.style.setProperty("--shade-soft", lighten(item.hex, 0.42));
   card.style.setProperty("--shade-light", lighten(item.hex, 0.64));
@@ -571,97 +567,404 @@ function ShadeCard(item, index) {
   return card;
 }
 
-function replaceShadeCards(selectedIndex) {
+function createShadeCarousel() {
   const fragment = document.createDocumentFragment();
-  getShadeMoodboardItems(selectedIndex).forEach((item, index) => {
+  const track = document.createElement("div");
+  const status = document.createElement("p");
+
+  track.className = "dress-looks-track";
+  status.className = "dress-looks-status";
+  status.setAttribute("aria-live", "polite");
+
+  palette.forEach((item, index) => {
     fragment.append(ShadeCard(item, index));
   });
 
-  dressLooks.replaceChildren(fragment);
+  track.append(fragment);
+  dressLooks.replaceChildren(track, status);
+  return { track, status };
 }
 
-function renderShadeCards(selectedIndex, animate = true) {
-  if (!dressLooks) {
-    return;
+let dressLooksTrack;
+let dressLooksStatus;
+let shadeTrackOffset = 0;
+let shadePointerStartX = 0;
+let shadePointerStartY = 0;
+let shadePointerLastX = 0;
+let shadePointerId;
+let shadeDidDrag = false;
+let shadeAutoFrame;
+let shadeLastFrameTime = 0;
+let shadeResumeTimer;
+let shadeSnapTimer;
+let shadeAutoPaused = false;
+
+function getShadeCards() {
+  if (!dressLooksTrack) {
+    return [];
   }
 
-  window.clearTimeout(shadeRenderTimer);
-
-  if (!animate || !dressLooks.children.length) {
-    dressLooks.classList.remove("is-entering", "is-leaving", "is-transitioning");
-    replaceShadeCards(selectedIndex);
-    return;
-  }
-
-  dressLooks.classList.remove("is-entering");
-  dressLooks.classList.add("is-transitioning", "is-leaving");
-  shadeRenderTimer = window.setTimeout(() => {
-    replaceShadeCards(selectedIndex);
-    dressLooks.classList.remove("is-leaving");
-    dressLooks.classList.add("is-entering");
-    dressLooks.offsetHeight;
-    window.requestAnimationFrame(() => {
-      dressLooks.classList.remove("is-entering");
-      window.setTimeout(() => {
-        dressLooks.classList.remove("is-transitioning");
-      }, 720);
-    });
-  }, SHADE_TRANSITION_MS);
+  return Array.from(dressLooksTrack.querySelectorAll(".shade-card"));
 }
 
-function selectPalette(color, animate = true) {
-  paletteIndex = getPaletteIndex(color);
+function getShadeGap() {
+  if (!dressLooksTrack) {
+    return 0;
+  }
 
+  const styles = window.getComputedStyle(dressLooksTrack);
+  const gap = parseFloat(styles.columnGap || styles.gap);
+  return Number.isFinite(gap) ? gap : 0;
+}
+
+function syncSwatchesAndStatus() {
   swatches.forEach((swatch) => {
-    const isSelected = swatch.dataset.color === color;
+    const isSelected = swatch.dataset.color === palette[paletteIndex].key;
     swatch.classList.toggle("is-selected", isSelected);
     swatch.setAttribute("aria-selected", String(isSelected));
   });
 
-  renderShadeCards(paletteIndex, animate);
+  if (dressLooksStatus) {
+    dressLooksStatus.textContent = `${paletteIndex + 1} из ${palette.length} оттенков`;
+  }
 }
 
-function updatePaletteTimerState() {
+function applyShadeTrackOffset() {
+  if (dressLooksTrack) {
+    dressLooksTrack.style.transform = `translateX(${shadeTrackOffset}px)`;
+  }
+}
+
+function normalizeShadeTrackOffset() {
+  if (!dressLooksTrack) {
+    return;
+  }
+
+  const gap = getShadeGap();
+  let safety = 0;
+
+  while (
+    dressLooksTrack.firstElementChild
+    && shadeTrackOffset + dressLooksTrack.firstElementChild.offsetWidth + gap < 0
+    && safety < palette.length
+  ) {
+    const firstCard = dressLooksTrack.firstElementChild;
+    const shift = firstCard.offsetWidth + gap;
+    dressLooksTrack.append(firstCard);
+    shadeTrackOffset += shift;
+    safety += 1;
+  }
+
+  safety = 0;
+
+  while (dressLooksTrack.lastElementChild && shadeTrackOffset > 0 && safety < palette.length) {
+    const lastCard = dressLooksTrack.lastElementChild;
+    const shift = lastCard.offsetWidth + gap;
+    dressLooksTrack.prepend(lastCard);
+    shadeTrackOffset -= shift;
+    safety += 1;
+  }
+}
+
+function getCenteredShadeCard() {
+  if (!dressLooks) {
+    return null;
+  }
+
+  const cards = getShadeCards();
+  const viewportCenter = dressLooks.clientWidth / 2;
+  let centeredCard = null;
+  let closestDistance = Infinity;
+
+  cards.forEach((card) => {
+    const cardCenter = card.offsetLeft + shadeTrackOffset + card.offsetWidth / 2;
+    const distance = Math.abs(cardCenter - viewportCenter);
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      centeredCard = card;
+    }
+  });
+
+  return centeredCard;
+}
+
+function syncShadeActiveCard() {
+  const cards = getShadeCards();
+  const activeCard = getCenteredShadeCard();
+
+  cards.forEach((card) => {
+    const isActive = card === activeCard;
+    card.classList.toggle("shade-card-featured", isActive);
+    card.setAttribute("aria-current", String(isActive));
+    card.tabIndex = isActive ? 0 : -1;
+  });
+
+  if (!activeCard) {
+    return;
+  }
+
+  const nextIndex = Number(activeCard.dataset.paletteIndex);
+  if (Number.isFinite(nextIndex) && nextIndex !== paletteIndex) {
+    paletteIndex = nextIndex;
+    syncSwatchesAndStatus();
+  }
+}
+
+function setShadeTrackOffset(offset, animate = false) {
+  window.clearTimeout(shadeSnapTimer);
+  dressLooks.classList.toggle("is-snapping", animate);
+  shadeTrackOffset = offset;
+  normalizeShadeTrackOffset();
+  applyShadeTrackOffset();
+  syncShadeActiveCard();
+
+  if (animate) {
+    shadeSnapTimer = window.setTimeout(() => {
+      dressLooks.classList.remove("is-snapping");
+    }, SHADE_SNAP_MS);
+  }
+}
+
+function getClosestShadeCardByPaletteIndex(index) {
+  const cards = getShadeCards().filter((card) => Number(card.dataset.paletteIndex) === index);
+  const viewportCenter = dressLooks.clientWidth / 2;
+  let closestCard = null;
+  let closestDistance = Infinity;
+
+  cards.forEach((card) => {
+    const cardCenter = card.offsetLeft + shadeTrackOffset + card.offsetWidth / 2;
+    const distance = Math.abs(cardCenter - viewportCenter);
+
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestCard = card;
+    }
+  });
+
+  return closestCard;
+}
+
+function centerShadeCard(card, animate = true) {
+  if (!dressLooks || !card) {
+    return;
+  }
+
+  const viewportCenter = dressLooks.clientWidth / 2;
+  const cardCenter = card.offsetLeft + shadeTrackOffset + card.offsetWidth / 2;
+  setShadeTrackOffset(shadeTrackOffset + viewportCenter - cardCenter, animate);
+}
+
+function updateShadeCarousel(animate = false) {
   if (!dressLooks) {
     return;
   }
 
-  dressLooks.style.setProperty("--shade-timer-progress", `${paletteProgress * 360}deg`);
-}
-
-function tickPaletteTimer(now) {
-  paletteProgress = Math.min((now - paletteStartedAt) / PALETTE_INTERVAL, 1);
-  updatePaletteTimerState();
-
-  if (paletteProgress >= 1) {
-    paletteIndex = (paletteIndex + 1) % palette.length;
-    selectPalette(palette[paletteIndex].key);
-    paletteStartedAt = now;
-    paletteProgress = 0;
-    updatePaletteTimerState();
+  if (!dressLooksTrack || !dressLooksStatus) {
+    const carouselParts = createShadeCarousel();
+    dressLooksTrack = carouselParts.track;
+    dressLooksStatus = carouselParts.status;
   }
 
-  paletteTimerFrame = window.requestAnimationFrame(tickPaletteTimer);
+  setShadeTrackOffset(shadeTrackOffset, animate);
+  syncSwatchesAndStatus();
 }
 
-function restartPaletteTimer() {
-  window.cancelAnimationFrame(paletteTimerFrame);
-  paletteProgress = 0;
-  paletteStartedAt = performance.now();
-  updatePaletteTimerState();
-  paletteTimerFrame = window.requestAnimationFrame(tickPaletteTimer);
+function selectPaletteByIndex(nextIndex, animate = true) {
+  const targetIndex = (nextIndex + palette.length) % palette.length;
+  paletteIndex = targetIndex;
+
+  if (!dressLooksTrack || !dressLooksStatus) {
+    const carouselParts = createShadeCarousel();
+    dressLooksTrack = carouselParts.track;
+    dressLooksStatus = carouselParts.status;
+  }
+
+  syncSwatchesAndStatus();
+
+  window.requestAnimationFrame(() => {
+    centerShadeCard(getClosestShadeCardByPaletteIndex(targetIndex), animate);
+  });
+}
+
+function showNextPalette() {
+  pauseShadeAutoScroll();
+  selectPaletteByIndex(paletteIndex + 1);
+  resumeShadeAutoScroll(SHADE_INTERACTION_RESUME_MS);
+}
+
+function showPrevPalette() {
+  pauseShadeAutoScroll();
+  selectPaletteByIndex(paletteIndex - 1);
+  resumeShadeAutoScroll(SHADE_INTERACTION_RESUME_MS);
+}
+
+function setupShadeCarouselPointer() {
+  if (!dressLooks) {
+    return;
+  }
+
+  dressLooks.addEventListener("pointerdown", (event) => {
+    if (!dressLooksTrack || event.button > 0) {
+      return;
+    }
+
+    shadePointerId = event.pointerId;
+    shadePointerStartX = event.clientX;
+    shadePointerStartY = event.clientY;
+    shadePointerLastX = event.clientX;
+    shadeDidDrag = false;
+    pauseShadeAutoScroll();
+    dressLooks.classList.add("is-dragging");
+    dressLooks.setPointerCapture(event.pointerId);
+  });
+
+  dressLooks.addEventListener("pointermove", (event) => {
+    if (event.pointerId !== shadePointerId) {
+      return;
+    }
+
+    const deltaX = event.clientX - shadePointerStartX;
+    const deltaY = event.clientY - shadePointerStartY;
+
+    if (Math.abs(deltaX) > 6 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      shadeDidDrag = true;
+      setShadeTrackOffset(shadeTrackOffset + event.clientX - shadePointerLastX, false);
+      shadePointerLastX = event.clientX;
+    }
+  });
+
+  function finishShadePointer(event) {
+    if (event.pointerId !== shadePointerId) {
+      return;
+    }
+
+    dressLooks.classList.remove("is-dragging");
+    if (dressLooks.hasPointerCapture(event.pointerId)) {
+      dressLooks.releasePointerCapture(event.pointerId);
+    }
+    shadePointerId = undefined;
+
+    if (!shadeDidDrag) {
+      updateShadeCarousel();
+    }
+
+    resumeShadeAutoScroll(SHADE_INTERACTION_RESUME_MS);
+  }
+
+  dressLooks.addEventListener("pointerup", finishShadePointer);
+  dressLooks.addEventListener("pointercancel", finishShadePointer);
+
+  dressLooks.addEventListener("click", (event) => {
+    if (shadeDidDrag) {
+      shadeDidDrag = false;
+      return;
+    }
+
+    const card = event.target.closest(".shade-card");
+    if (!card) {
+      return;
+    }
+
+    pauseShadeAutoScroll();
+    selectPaletteByIndex(Number(card.dataset.paletteIndex));
+    resumeShadeAutoScroll(SHADE_INTERACTION_RESUME_MS);
+  });
+
+  dressLooks.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showNextPalette();
+      return;
+    }
+
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showPrevPalette();
+    }
+  });
+}
+
+function selectPalette(color, animate = true) {
+  selectPaletteByIndex(getPaletteIndex(color), animate);
+}
+
+function pauseShadeAutoScroll() {
+  shadeAutoPaused = true;
+  window.clearTimeout(shadeResumeTimer);
+}
+
+function resumeShadeAutoScroll(delay = 0) {
+  window.clearTimeout(shadeResumeTimer);
+
+  if (reduceMotionQuery.matches) {
+    return;
+  }
+
+  const resume = () => {
+    shadeAutoPaused = false;
+    shadeLastFrameTime = performance.now();
+  };
+
+  if (delay > 0) {
+    shadeResumeTimer = window.setTimeout(resume, delay);
+    return;
+  }
+
+  resume();
+}
+
+function tickShadeAutoScroll(now) {
+  if (!dressLooks || !dressLooksTrack) {
+    return;
+  }
+
+  if (!shadeLastFrameTime) {
+    shadeLastFrameTime = now;
+  }
+
+  const elapsed = Math.min(now - shadeLastFrameTime, 80);
+  shadeLastFrameTime = now;
+
+  if (!shadeAutoPaused && !reduceMotionQuery.matches) {
+    setShadeTrackOffset(shadeTrackOffset - (SHADE_SCROLL_SPEED * elapsed) / 1000, false);
+  }
+
+  shadeAutoFrame = window.requestAnimationFrame(tickShadeAutoScroll);
+}
+
+function startShadeAutoScroll() {
+  window.cancelAnimationFrame(shadeAutoFrame);
+  shadeLastFrameTime = performance.now();
+  shadeAutoPaused = reduceMotionQuery.matches;
+  shadeAutoFrame = window.requestAnimationFrame(tickShadeAutoScroll);
 }
 
 swatches.forEach((swatch) => {
   swatch.addEventListener("click", () => {
+    pauseShadeAutoScroll();
     selectPalette(swatch.dataset.color);
-    restartPaletteTimer();
+    resumeShadeAutoScroll(SHADE_INTERACTION_RESUME_MS);
   });
 });
 
 if (dressLooks) {
-  selectPalette(palette[0].key, false);
-  restartPaletteTimer();
+  setupShadeCarouselPointer();
+  selectPaletteByIndex(0, false);
+  startShadeAutoScroll();
+  reduceMotionQuery.addEventListener("change", () => {
+    if (reduceMotionQuery.matches) {
+      pauseShadeAutoScroll();
+      return;
+    }
+
+    resumeShadeAutoScroll(SHADE_INTERACTION_RESUME_MS);
+  });
+  window.addEventListener("resize", () => {
+    pauseShadeAutoScroll();
+    updateShadeCarousel(false);
+    resumeShadeAutoScroll(300);
+  });
 }
 
 // RSVP: статический сайт отправляет данные в Google Apps Script Web App.
