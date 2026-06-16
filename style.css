@@ -1794,6 +1794,16 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .extras-card {
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(245, 244, 237, 0.7);
+  }
+
+  .extras-card h3 {
+    text-align: center;
+  }
+
   .story-track {
     gap: 24px;
   }
@@ -2080,6 +2090,13 @@ h2 {
 
   .second-day {
     grid-template-columns: 1fr;
+    width: auto;
+    height: 100%;
+  }
+
+  .second-day img {
+    width: auto;
+    height: 100%;
   }
 
   .rsvp {
