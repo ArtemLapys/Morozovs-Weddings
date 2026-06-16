@@ -840,7 +840,7 @@ h2 {
 }
 
 .dress-looks-desktop-hint {
-  margin: calc(var(--dress-shadow-space-bottom, 0px) + 15px) 0 0;
+  /* margin: calc(var(--dress-shadow-space-bottom, 0px) + 15px) 0 0; */
   color: var(--ink);
   font-family: "Noto Serif", Georgia, serif;
   font-size: 14px;
