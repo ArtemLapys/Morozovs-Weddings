@@ -1109,6 +1109,12 @@ h2 {
   line-height: 30px;
 }
 
+.animal-help-gif {
+  width: min(40%, 216px);
+  height: auto;
+  margin: 26px auto 0;
+}
+
 .second-day {
   display: grid;
   grid-template-columns: 1fr 225px;
@@ -1612,16 +1618,17 @@ h2 {
   top: 312px;
   left: 50%;
   transform: translateX(-50%);
-  width: 396px;
+  width: max-content;
   font-family: Inter, Arial, sans-serif;
   font-size: 36px;
   font-weight: 800;
   line-height: 40px;
+  white-space: nowrap;
 }
 
 .site-footer p {
   position: absolute;
-  top: 388px;
+  top: 367px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
@@ -2200,6 +2207,7 @@ h2 {
     top: 188px;
     width: 280px;
     font-size: 24px;
+    white-space: normal;
   }
 
   .site-footer p {
